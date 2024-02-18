@@ -29,7 +29,7 @@ export default [
     },
      {
          year: '2018',
-         title: 'First Compile',
+         title: 'First lines of code.',
          duration: 'The start of it all',
          details:
              "This is the first code I have ever compiled and it was in my ICT class in Highschool where we learnt how to do loops. Couldn't have imagine that this was the start of hours and hours of coding.",
