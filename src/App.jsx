@@ -4,7 +4,7 @@ import Footer from './components/Footer';
 import Intro from './components/Intro';
 import Portfolio from './components/Portfolio';
 import Timeline from './components/Timeline';
-import Preloader from './components/Preloader';
+import PreLoader from './components/PreLoader';
 
 function App() {
 	const [theme, setTheme] = useState(null);
@@ -65,6 +65,7 @@ function App() {
 
   return (
 	<>
+	<PreLoader/>
 		<button
 			type="button"
 			onClick={handleThemeSwitch}
