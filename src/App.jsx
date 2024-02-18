@@ -6,9 +6,7 @@ import Portfolio from './components/Portfolio';
 import Timeline from './components/Timeline';
 import PreLoader from './components/PreLoader';
 import RevealOnScroll from './components/RevealOnScroll';
-
-
-
+import AboutMe from './components/AboutMe';
 
 
 
@@ -73,26 +71,35 @@ function App() {
   return (
 	<>
 	<PreLoader/>
-		<button
-			type="button"
-			onClick={handleThemeSwitch}
-			className="fixed p-2 z-10 right-20 top-4 bg-violet-300 dark:bg-orange-300 text-lg p-1 rounded-md"
-		>
-			{theme === 'dark' ? sun : moon}
-		</button>
-		<div className="bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-300 min-h-screen font-inter">
-			<div className="max-w-5xl w-11/12 mx-auto">
-				<Intro />
-				<Portfolio />
-				<RevealOnScroll>
-					<Timeline />
-				</RevealOnScroll>
-				<RevealOnScroll>
-					<Contact />
-				</RevealOnScroll>
-				<Footer />
-			</div>
+	
+	<button
+		type="button"
+		onClick={handleThemeSwitch}
+		className="fixed p-2 z-10 right-20 top-4 bg-violet-300 dark:bg-orange-300 text-lg p-1 rounded-md"
+	>
+		{theme === 'dark' ? sun : moon}
+	</button>
+
+	
+	<div className="bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-300 min-h-screen font-inter">
+		<div className="max-w-5xl w-11/12 mx-auto">
+		
+			<Intro />
+			
+			<Portfolio />
+			
+			<RevealOnScroll>
+				<AboutMe />
+			</RevealOnScroll>
+			<RevealOnScroll>
+				<Timeline />
+			</RevealOnScroll>
+			<RevealOnScroll>
+				<Contact />
+			</RevealOnScroll>
+			<Footer />
 		</div>
+	</div>
 	 </>
   )
 }

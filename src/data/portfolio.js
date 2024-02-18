@@ -1,6 +1,6 @@
 export default [
     {
-        title: 'Terminal Website',
+        title: 'Imitation Bot',
         imgUrl: '/assets/LLMBot.png',
         stack: ['Python','LangChain','Streamlit'],
         link: 'https://github.com/cdfelixj/personalBot?tab=readme-ov-file'
