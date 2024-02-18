@@ -17,7 +17,6 @@
 
 .preloader .texts-container{
     display: flex;
-    
     justify-content: space-between;
     height: 60px;
     width: 280px;
