@@ -6,7 +6,7 @@ import Card from './Card'
 export default function AboutMe() {
   return (
     <div>
-      <div className="flex flex-col md:flex-row justify-center mt-10 mb-15">
+      <div className="flex flex-col md:flex-row justify-center my-10 mb-15">
           <div className="w-full md:w-7/12">
             
           </div>
