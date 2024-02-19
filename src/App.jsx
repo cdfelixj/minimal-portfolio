@@ -77,7 +77,7 @@ function App() {
 
 		<div className="rounded-md p-1">
 			<a href={CV} without rel="noopener noreferrer" target="_blank" className='group text-sky-600 dark:text-amber-600 transition duration-300'> CV
-			<span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600 dark:bg-amber-600"></span>
+			<span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600 dark:bg-amber-600"></span>
 			</a>
 		</div>
 
@@ -100,15 +100,18 @@ function App() {
 		<div className="max-w-5xl w-11/12 mx-auto">
 		
 			<Intro />
+			<RevealOnScroll>
+				<Timeline />
+			</RevealOnScroll>
 			
+			<RevealOnScroll>
 			<Portfolio />
+			</RevealOnScroll>
 			
 			<RevealOnScroll>
 				<AboutMe />
 			</RevealOnScroll>
-			<RevealOnScroll>
-				<Timeline />
-			</RevealOnScroll>
+			
 			<RevealOnScroll>
 				<Contact />
 			</RevealOnScroll>
