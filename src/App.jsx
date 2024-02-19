@@ -7,6 +7,8 @@ import Timeline from './components/Timeline';
 import PreLoader from './components/PreLoader';
 import RevealOnScroll from './components/RevealOnScroll';
 import AboutMe from './components/AboutMe';
+import CV from "/public/assets/Juan-Felix-Pangestu_CV.pdf"
+
 
 
 
@@ -40,7 +42,7 @@ function App() {
 			fill="none"
 			viewBox="0 0 24 24"
 			strokeWidth={1.5}
-			stroke="currentColor"
+			stroke="#d97706"
 			className="w-6 h-6"
 		>
 			<path
@@ -57,7 +59,7 @@ function App() {
 			fill="none"
 			viewBox="0 0 24 24"
 			strokeWidth={1.5}
-			stroke="white"
+			stroke="#0284c7"
 			className="w-6 h-6"
 		>
 			<path
@@ -71,15 +73,28 @@ function App() {
   return (
 	<>
 	<PreLoader/>
-	
-	<button
-		type="button"
-		onClick={handleThemeSwitch}
-		className="fixed p-2 z-10 right-20 top-4 bg-violet-300 dark:bg-orange-300 text-lg p-1 rounded-md"
-	>
-		{theme === 'dark' ? sun : moon}
-	</button>
+	<div className="flex fixed p-2 z-10 right-20 top-4 gap-10 items-center">
 
+		<div className="rounded-md p-1">
+			<a href={CV} without rel="noopener noreferrer" target="_blank" className='group text-sky-600 dark:text-amber-600 transition duration-300'> CV
+			<span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600 dark:bg-amber-600"></span>
+			</a>
+		</div>
+
+		<div className="">
+			<button
+				type="button"
+				onClick={handleThemeSwitch}
+				className="text-lg p-1"
+			>
+				{theme === 'dark' ? sun : moon}
+			</button>
+		</div>
+
+		
+	</div>
+	
+	
 	
 	<div className="bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-300 min-h-screen font-inter">
 		<div className="max-w-5xl w-11/12 mx-auto">
