@@ -24,7 +24,7 @@ function PortfolioItem({ title, imgUrl, stack, link }) {
                
             </p>
             <div className="">
-               See More
+               
             </div>
          </div>
          
