@@ -9,7 +9,7 @@ export default [
     {
         year: '2022 Summer',
         title: 'Product Management Intern',
-        duration: '4 Months',
+        duration: 'Markworth',
         details:
             'I was part of the product team in which I contributed in product design, implementation and discussions. Started to get used to using HTML, CSS and Javascript with Odoo to create websites for the company and clients.',
     },

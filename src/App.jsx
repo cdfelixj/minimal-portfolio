@@ -104,12 +104,13 @@ function App() {
 				<Timeline />
 			</RevealOnScroll>
 			
-			<RevealOnScroll>
-			<Portfolio />
-			</RevealOnScroll>
 			
 			<RevealOnScroll>
 				<AboutMe />
+			</RevealOnScroll>
+
+			<RevealOnScroll>
+			<Portfolio />
 			</RevealOnScroll>
 			
 			<RevealOnScroll>
