@@ -27,10 +27,13 @@ import {
   Code,
   TrendingUp,
   CheckCircle,
+  Visibility,
 } from '@mui/icons-material';
+import DetailedProjectsView from './DetailedProjectsView';
 
 const ProjectsSection = () => {
   const [expandedCard, setExpandedCard] = useState(null);
+  const [showDetailedView, setShowDetailedView] = useState(false);
 
   const projects = [
     {
@@ -498,12 +501,10 @@ const ProjectsSection = () => {
                   contributions, and code samples across different technologies and domains.
                 </Typography>
                 <Button
-                  href="https://github.com/cdfelixj"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  onClick={() => setShowDetailedView(true)}
                   variant="contained"
                   size="large"
-                  startIcon={<GitHub />}
+                  startIcon={<Visibility />}
                   sx={{
                     background: 'linear-gradient(45deg, #3b82f6, #8b5cf6)',
                     borderRadius: '25px',
@@ -512,14 +513,39 @@ const ProjectsSection = () => {
                     textTransform: 'none',
                     fontWeight: 600,
                     fontSize: '1.1rem',
+                    mr: 2,
                   }}
                 >
                   View All Projects
+                </Button>
+                <Button
+                  href="https://github.com/cdfelixj"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="outlined"
+                  size="large"
+                  startIcon={<GitHub />}
+                  sx={{
+                    borderRadius: '25px',
+                    px: 4,
+                    py: 1.5,
+                    textTransform: 'none',
+                    fontWeight: 600,
+                    fontSize: '1.1rem',
+                  }}
+                >
+                  GitHub Profile
                 </Button>
               </CardContent>
             </Card>
           </motion.div>
         </motion.div>
+        
+        {/* Detailed Projects View */}
+        <DetailedProjectsView 
+          open={showDetailedView} 
+          onClose={() => setShowDetailedView(false)} 
+        />
       </Container>
     </Box>
   );

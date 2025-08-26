@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
+import DetailedProjectsView from './components/DetailedProjectsView';
+import DetailedExperienceView from './components/DetailedExperienceView';
 import './styles/tailwind.css';
 
 function App() {
 	const [expandedExperience, setExpandedExperience] = useState(null);
+	const [showDetailedProjects, setShowDetailedProjects] = useState(false);
+	const [showDetailedExperience, setShowDetailedExperience] = useState(false);
 	const { scrollYProgress } = useScroll();
 	const scaleX = useSpring(scrollYProgress, {
 		stiffness: 100,
@@ -303,6 +307,22 @@ function App() {
 							))}
 						</div>
 					</div>
+					
+					{/* View All Experience Button */}
+					<div className="text-center mt-12">
+						<motion.button
+							onClick={() => setShowDetailedExperience(true)}
+							className="inline-flex items-center px-8 py-4 bg-blue-900 text-white rounded-lg font-semibold text-lg hover:bg-blue-800 transition-colors duration-300"
+							whileHover={{ scale: 1.02 }}
+							whileTap={{ scale: 0.98 }}
+						>
+							<svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+							</svg>
+							View Full Professional Journey
+						</motion.button>
+					</div>
 				</div>
 
 				{/* Featured Projects Section */}
@@ -350,6 +370,21 @@ function App() {
 							</motion.div>
 						))}
 					</div>
+					
+					{/* View All Projects Button */}
+					<div className="text-center mt-12">
+						<motion.button
+							onClick={() => setShowDetailedProjects(true)}
+							className="inline-flex items-center px-8 py-4 bg-blue-900 text-white rounded-lg font-semibold text-lg hover:bg-blue-800 transition-colors duration-300"
+							whileHover={{ scale: 1.02 }}
+							whileTap={{ scale: 0.98 }}
+						>
+							<svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+							</svg>
+							View All Projects
+						</motion.button>
+					</div>
 				</div>
 
 				{/* Contact Section */}
@@ -384,6 +419,16 @@ function App() {
 					</div>
 				</div>
 			</div>
+			
+			{/* Detailed Views */}
+			<DetailedProjectsView 
+				open={showDetailedProjects} 
+				onClose={() => setShowDetailedProjects(false)} 
+			/>
+			<DetailedExperienceView 
+				open={showDetailedExperience} 
+				onClose={() => setShowDetailedExperience(false)} 
+			/>
 		</div>
 	);
 }

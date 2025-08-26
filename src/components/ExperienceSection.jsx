@@ -25,10 +25,13 @@ import {
   LocationOn,
   TrendingUp,
   CheckCircle,
+  Visibility,
 } from '@mui/icons-material';
+import DetailedExperienceView from './DetailedExperienceView';
 
 const ExperienceSection = () => {
   const [expandedCard, setExpandedCard] = useState(null);
+  const [showDetailedView, setShowDetailedView] = useState(false);
 
   const experiences = [
     {
@@ -395,6 +398,23 @@ const ExperienceSection = () => {
                   I'm excited to contribute to innovative projects and continue growing as a developer.
                 </Typography>
                 <Button
+                  variant="outlined"
+                  size="large"
+                  startIcon={<Visibility />}
+                  onClick={() => setShowDetailedView(true)}
+                  sx={{
+                    borderRadius: '25px',
+                    px: 4,
+                    py: 1.5,
+                    textTransform: 'none',
+                    fontWeight: 600,
+                    fontSize: '1.1rem',
+                    mr: 2,
+                  }}
+                >
+                  View Full Journey
+                </Button>
+                <Button
                   variant="contained"
                   size="large"
                   onClick={() => {
@@ -418,6 +438,12 @@ const ExperienceSection = () => {
             </Card>
           </motion.div>
         </motion.div>
+        
+        {/* Detailed Experience View */}
+        <DetailedExperienceView 
+          open={showDetailedView} 
+          onClose={() => setShowDetailedView(false)} 
+        />
       </Container>
     </Box>
   );
