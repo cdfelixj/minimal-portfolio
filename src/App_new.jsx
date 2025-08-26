@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
+import FloatingNav from './components/FloatingNav';
 import './styles/tailwind.css';
 
 function App() {
@@ -33,39 +34,42 @@ function App() {
 	const experiences = [
 		{
 			company: "CATHAY PACIFIC",
-			role: "Digital & IT Intern", 
+			role: "Digital & IT Intern",
 			period: "Jul 2025 – Aug 2025",
 			description: "Enhanced digital transformation initiatives across multiple departments.",
 			details: [
 				"Developed automated reporting dashboards using Power BI and Python",
 				"Collaborated with cross-functional teams to optimize IT infrastructure",
-				"Implemented data migration scripts for legacy system modernization"
+				"Implemented data migration scripts for legacy system modernization",
+				"Contributed to mobile app feature development and testing"
 			],
-			technologies: ["Python", "Power BI", "SQL Server", "Azure"]
+			technologies: ["Python", "Power BI", "SQL Server", "React Native", "Azure"]
 		},
 		{
 			company: "WIZPRESSO",
 			role: "Software Engineer Intern",
-			period: "Jun 2024 - Aug 2024", 
+			period: "Jun 2024 - Aug 2024",
 			description: "Built full-stack solutions for e-commerce platform optimization.",
 			details: [
 				"Developed responsive web applications using React and Node.js",
 				"Integrated payment systems with Stripe and PayPal APIs",
-				"Optimized database queries reducing load times by 40%"
+				"Optimized database queries reducing load times by 40%",
+				"Implemented automated testing suites with Jest and Cypress"
 			],
-			technologies: ["React", "Node.js", "Express.js", "MongoDB", "Stripe API"]
+			technologies: ["React", "Node.js", "Express.js", "MongoDB", "Stripe API", "Jest"]
 		},
 		{
 			company: "HKBU",
 			role: "Research Assistant",
 			period: "Jan 2024 – Aug 2024",
-			description: "Advanced AI research in financial statement analysis.",
+			description: "Advanced AI research in financial statement analysis and machine learning applications.",
 			details: [
 				"Developed ML models for financial document classification using NLP",
 				"Processed large datasets with 95% accuracy in financial ratio extraction",
-				"Published findings in peer-reviewed conference proceedings"
+				"Published findings in peer-reviewed conference proceedings",
+				"Collaborated with faculty on grant proposal development"
 			],
-			technologies: ["Python", "TensorFlow", "Pandas", "NLTK", "PyTorch"]
+			technologies: ["Python", "TensorFlow", "Pandas", "NLTK", "PyTorch", "BigQuery"]
 		}
 	];
 
@@ -74,19 +78,22 @@ function App() {
 			title: "READ THE VISION",
 			impact: "Building computer vision solutions for social impact through accessibility technology",
 			description: "Developing an AI-powered mobile application that helps visually impaired individuals navigate and understand their environment through real-time object detection and audio feedback.",
-			funding: "Secured $10,000 in seed funding from HKBU Innovation Challenge.",
+			technical: "Implemented using TensorFlow Lite for on-device inference, React Native for cross-platform development, and Google Cloud Vision API for enhanced accuracy. The app processes camera feeds in real-time with <200ms latency.",
+			funding: "Secured $10,000 in seed funding from HKBU Innovation Challenge and selected for Google for Startups accelerator program.",
 			links: ["GitHub", "Live Demo", "Pitch Deck"]
 		},
 		{
-			title: "POWERLIFT E-COMMERCE", 
+			title: "POWERLIFT E-COMMERCE",
 			description: "Full-stack e-commerce platform specializing in fitness equipment with advanced inventory management and customer analytics.",
-			technical: "Built with MERN stack architecture, featuring React frontend with Redux state management, Express.js RESTful API, and MongoDB database.",
+			technical: "Built with MERN stack architecture, featuring React frontend with Redux state management, Express.js RESTful API, MongoDB with Mongoose ODM, and Node.js backend. Integrated Stripe payment processing with webhook handling for secure transactions.",
+			features: "Real-time inventory tracking, personalized product recommendations using collaborative filtering, automated email marketing campaigns, and comprehensive admin dashboard with sales analytics.",
 			links: ["GitHub", "Live Site"]
 		},
 		{
 			title: "MEALMATCH",
 			description: "Social impact platform connecting food donors with local charities to reduce food waste and address hunger in Hong Kong communities.",
-			impact: "Facilitated over 500 successful food donations, preventing 2,000+ meals from going to waste.",
+			technical: "Leveraged Hungarian Algorithm for optimal donor-charity matching based on location, food type, and capacity constraints. Built with React frontend, Firebase Realtime Database for instant updates, and Google Maps API for location services.",
+			impact: "Facilitated over 500 successful food donations, preventing 2,000+ meals from going to waste while serving 15+ local charities across Hong Kong.",
 			links: ["GitHub", "Case Study"]
 		}
 	];
@@ -104,6 +111,7 @@ function App() {
 			<div className="absolute inset-0 z-0">
 				<div className="absolute top-20 right-10 w-72 h-72 bg-blue-50 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
 				<div className="absolute top-40 left-10 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-pulse" style={{animationDelay: '2s'}}></div>
+				<div className="absolute bottom-20 right-20 w-80 h-80 bg-blue-50 rounded-full mix-blend-multiply filter blur-xl opacity-60 animate-pulse" style={{animationDelay: '4s'}}></div>
 			</div>
 
 			{/* Progress Bar */}
@@ -112,10 +120,13 @@ function App() {
 				style={{ scaleX }}
 			/>
 
+			{/* Floating Navigation */}
+			<FloatingNav />
+
 			{/* Single Continuous Content Flow */}
 			<div className="relative z-10 max-w-4xl mx-auto px-6 py-16">
 				
-				{/* Hero/About Section */}
+				{/* Hero/About Integrated Section */}
 				<div id="hero" className="mb-32">
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
@@ -205,7 +216,7 @@ function App() {
 				</div>
 
 				{/* Technical Skills Section */}
-				<div id="skills" className="mb-32">
+				<div id="skills" className="scroll-animate mb-32">
 					<h2 className="text-4xl font-bold text-blue-900 mb-4">Technical Expertise</h2>
 					<p className="text-xl text-gray-600 mb-12">Technologies I work with to bring ideas to life</p>
 					
@@ -236,7 +247,7 @@ function App() {
 				</div>
 
 				{/* Professional Experience Section */}
-				<div id="experience" className="mb-32">
+				<div id="experience" className="scroll-animate mb-32">
 					<h2 className="text-4xl font-bold text-blue-900 mb-4">Professional Journey</h2>
 					<p className="text-xl text-gray-600 mb-12">My career progression in technology and innovation</p>
 					
@@ -278,6 +289,7 @@ function App() {
 											<motion.div
 												initial={{ opacity: 0, height: 0 }}
 												animate={{ opacity: 1, height: 'auto' }}
+												exit={{ opacity: 0, height: 0 }}
 												transition={{ duration: 0.3 }}
 												className="space-y-4"
 											>
@@ -306,7 +318,7 @@ function App() {
 				</div>
 
 				{/* Featured Projects Section */}
-				<div id="projects" className="mb-32">
+				<div id="projects" className="scroll-animate mb-32">
 					<h2 className="text-4xl font-bold text-blue-900 mb-4">Featured Projects</h2>
 					<p className="text-xl text-gray-600 mb-12">Innovative solutions that make a meaningful impact</p>
 					
@@ -328,8 +340,10 @@ function App() {
 								
 								<p className="text-lg leading-relaxed">{project.description}</p>
 								
-								{project.technical && (
-									<p className="text-lg leading-relaxed">{project.technical}</p>
+								<p className="text-lg leading-relaxed">{project.technical}</p>
+								
+								{project.features && (
+									<p className="text-lg leading-relaxed">{project.features}</p>
 								)}
 								
 								{project.funding && (
@@ -352,8 +366,8 @@ function App() {
 					</div>
 				</div>
 
-				{/* Contact Section */}
-				<div id="contact">
+				{/* Contact & Closing Section */}
+				<div id="contact" className="scroll-animate">
 					<h2 className="text-4xl font-bold text-blue-900 mb-8">Let's Connect</h2>
 					
 					<div className="space-y-6 text-lg leading-relaxed">
