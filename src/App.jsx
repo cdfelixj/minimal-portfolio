@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import DetailedProjectsView from './components/DetailedProjectsView';
 import DetailedExperienceView from './components/DetailedExperienceView';
+import DetailedActivitiesView from './components/DetailedActivitiesView';
+import FloatingNav from './components/FloatingNav';
 import './styles/tailwind.css';
 
 function App() {
 	const [expandedExperience, setExpandedExperience] = useState(null);
 	const [showDetailedProjects, setShowDetailedProjects] = useState(false);
 	const [showDetailedExperience, setShowDetailedExperience] = useState(false);
+	const [showDetailedActivities, setShowDetailedActivities] = useState(false);
 	const { scrollYProgress } = useScroll();
 	const scaleX = useSpring(scrollYProgress, {
 		stiffness: 100,
@@ -39,67 +42,74 @@ function App() {
 			company: "CATHAY PACIFIC",
 			role: "Digital & IT Intern", 
 			period: "Jul 2025 – Aug 2025",
-			description: "Enhanced digital transformation initiatives across multiple departments.",
+			description: "Delivered full-stack MVP with automated reconciliation and coordinated hackathon for 600+ participants.",
 			details: [
-				"Developed automated reporting dashboards using Power BI and Python",
-				"Collaborated with cross-functional teams to optimize IT infrastructure",
-				"Implemented data migration scripts for legacy system modernization"
+				"Delivered a full-stack MVP (React/TypeScript, Python Flask) with automated reconciliation and validation",
+				"Coordinated hackathon masterclasses for 600+ participants, managing logistics and technical workshops",
+				"Supported integrations with top-tier U.S. bank and global technology partner"
 			],
-			technologies: ["Python", "Power BI", "SQL Server", "Azure"]
+			technologies: ["React", "TypeScript", "Python", "Flask"]
 		},
 		{
 			company: "WIZPRESSO",
 			role: "Software Engineer Intern",
 			period: "Jun 2024 - Aug 2024", 
-			description: "Built full-stack solutions for e-commerce platform optimization.",
+			description: "Refactored core services reducing API latency by 22% and implemented OAuth 2.0/OIDC for 15k+ users.",
 			details: [
-				"Developed responsive web applications using React and Node.js",
-				"Integrated payment systems with Stripe and PayPal APIs",
-				"Optimized database queries reducing load times by 40%"
+				"Refactored core services from SvelteKit/Prisma to ASP.NET Core Web API, reducing API latency by 22%",
+				"Implemented OAuth 2.0/OIDC with JWT SSO for 15k+ users",
+				"Led zero-downtime migration from SQL Server to Amazon RDS"
 			],
-			technologies: ["React", "Node.js", "Express.js", "MongoDB", "Stripe API"]
+			technologies: ["ASP.NET Core", "OAuth 2.0", "Amazon RDS", "SvelteKit"]
 		},
 		{
 			company: "HKBU",
 			role: "Research Assistant",
 			period: "Jan 2024 – Aug 2024",
-			description: "Advanced AI research in financial statement analysis.",
+			description: "Adapted 7B LLM for financial sentiment analysis using PEFT-LoRA with >95% fewer parameters.",
 			details: [
-				"Developed ML models for financial document classification using NLP",
-				"Processed large datasets with 95% accuracy in financial ratio extraction",
-				"Published findings in peer-reviewed conference proceedings"
+				"Adapted a 7B LLM for financial sentiment analysis using PEFT–LoRA technique",
+				"Achieved higher F1 scores than BERT with >95% fewer trainable parameters",
+				"Integrated optimized model into LangChain pipeline for large-scale inference"
 			],
-			technologies: ["Python", "TensorFlow", "Pandas", "NLTK", "PyTorch"]
+			technologies: ["Python", "PEFT-LoRA", "LangChain", "PyTorch"]
 		}
 	];
 
 	const projects = [
 		{
 			title: "READ THE VISION",
-			impact: "Building computer vision solutions for social impact through accessibility technology",
-			description: "Developing an AI-powered mobile application that helps visually impaired individuals navigate and understand their environment through real-time object detection and audio feedback.",
-			funding: "Secured $10,000 in seed funding from HKBU Innovation Challenge.",
-			links: ["GitHub", "Live Demo", "Pitch Deck"]
+			impact: "Building computer vision solution to transcribe hand signals and improve communication between deaf/mute communities and the public",
+			description: "Admitted to the HKSTP Ideation Programme with up to HKD 100,000 funding potential. Initial HKD 10,000 secured.",
+			funding: "Secured HKD 10,000 initial funding with potential for up to HKD 100,000 from HKSTP Ideation Programme.",
+			links: ["GitHub", "Programme Details"]
 		},
 		{
 			title: "POWERLIFT E-COMMERCE", 
-			description: "Full-stack e-commerce platform specializing in fitness equipment with advanced inventory management and customer analytics.",
-			technical: "Built with MERN stack architecture, featuring React frontend with Redux state management, Express.js RESTful API, and MongoDB database.",
-			links: ["GitHub", "Live Site"]
+			description: "Full-stack E-Commerce platform for powerlifting equipment using the MERN stack with integrated Stripe payment processing.",
+			technical: "Features admin dashboard with product management capabilities and secure payment processing.",
+			links: ["GitHub", "Live Site", "Admin Dashboard"]
 		},
 		{
 			title: "MEALMATCH",
-			description: "Social impact platform connecting food donors with local charities to reduce food waste and address hunger in Hong Kong communities.",
-			impact: "Facilitated over 500 successful food donations, preventing 2,000+ meals from going to waste.",
+			description: "Web platform designed to connect food bank donors with beneficiaries in need, utilizing the Hungarian Algorithm for efficient matching.",
+			impact: "Real-time dashboard for monitoring food donations and distributions using Firestore.",
 			links: ["GitHub", "Case Study"]
+		},
+		{
+			title: "MOVIE SENTIMENT ANALYSIS",
+			description: "Deep Learning NLP project benchmarking RNN, LSTM, GRU, CNN, and attention-based models for sentiment classification.",
+			technical: "Achieved up to 81% test accuracy with Word2Vec embeddings for enhanced word representation.",
+			links: ["GitHub", "Results"]
 		}
 	];
 
 	const skills = {
-		"Programming Languages": ["Java", "Python", "C#", "JavaScript", "TypeScript", "SQL"],
-		"Frameworks & Libraries": ["React", "Next.js", "ASP.NET Core", "Spring Boot", "Express.js", "Flask", "Material UI", "Tailwind CSS"],
-		"Data & Analytics": ["MySQL", "MongoDB", "BigQuery", "Firebase", "AWS RDS", "Pandas", "LangChain", "Power BI"],
-		"Cloud & Development": ["AWS (RDS, DMS, S3)", "GCP", "Git", "GitHub", "VS Code", "Postman"]
+		"Programming Languages": ["Java", "Python", "C#", "JavaScript", "TypeScript", "SQL", "HTML", "CSS"],
+		"Frameworks & Libraries": ["React", "Svelte", "Next.js", "ASP.NET Core", "Spring Boot", "Express.js", "Flask", "Material UI", "Tailwind CSS", "Streamlit"],
+		"Databases & Cloud": ["MySQL", "MongoDB", "BigQuery", "Firebase", "AWS RDS", "AWS S3", "AWS DMS"],
+		"AI & Machine Learning": ["Pandas", "Matplotlib", "Seaborn", "LangChain", "LoRA", "PEFT", "PyTorch", "NLTK", "Gensim", "HuggingFace"],
+		"Tools & Platforms": ["AWS", "GCP", "Git", "GitHub", "Postman", "VS Code", "OAuth 2.0", "OIDC", "JWT", "REST APIs", "Stripe API"]
 	};
 
 	return (
@@ -143,7 +153,7 @@ function App() {
 									transition={{ duration: 0.8, delay: 0.4 }}
 									className="text-2xl text-gray-600 mb-2"
 								>
-									Aspiring Software Engineer & ML Enthusiast
+									Software Engineer & AI Research Enthusiast
 								</motion.div>
 								
 								<motion.div
@@ -152,7 +162,7 @@ function App() {
 									transition={{ duration: 0.8, delay: 0.5 }}
 									className="text-lg text-blue-900 mb-8"
 								>
-									Hong Kong
+									Taikoo, Hong Kong • +852 94381766
 								</motion.div>
 							</div>
 							
@@ -177,17 +187,22 @@ function App() {
 							className="space-y-6 text-lg leading-relaxed"
 						>
 							<p>
-								Final year student at Hong Kong Baptist University studying Business Computing & Data Analytics with a 3.6 GPA and First Class Honors. 
+								Final year student at Hong Kong Baptist University studying Business Computing & Data Analytics with a 3.6/4.0 GPA and First Class Honors. Currently also serving roles as Student Ambassador, Peer Mentor, and CS Tutor.
 							</p>
 							
 							<p>
-								Of Chinese-Indonesian background, currently based in Hong Kong with international experience from my exchange semester at Nanyang Technological University in Singapore.
+								Of Chinese-Indonesian ethnicity, based in Taikoo, Hong Kong with recent international experience from my Fall 2024 exchange semester at Nanyang Technological University in Singapore on a Fung Scholarship. My Cantonese isn't the greatest but my English is native!
 							</p>
 							
 							<p>
-								Passionate about full-stack development and machine learning, I'm currently building computer vision solutions for social impact through my startup Read the Vision. You can connect with me on{' '}
-								<a href="https://linkedin.com/in/felixlp" className="text-blue-900 hover:underline font-medium">LinkedIn</a>, explore my work on{' '}
-								<a href="https://github.com/cdfelixj" className="text-blue-900 hover:underline font-medium">GitHub</a>, and reach out at{' '}
+								Passionate about emerging technologies and their applications to solve real-world problems. Currently building Read the Vision, a computer vision solution for deaf/mute communities. Recent accomplishments include reducing API latency by 22% at Wizpresso, adapting 7B LLMs with PEFT-LoRA for financial analysis, and coordinating hackathons for 600+ participants at Cathay Pacific.
+							</p>
+							
+							<p>
+								You can connect with me on{' '}
+								<a href="https://linkedin.com/in/jfelixpangestu/" className="text-blue-900 hover:underline font-medium">LinkedIn</a>, explore my work on{' '}
+								<a href="https://github.com/cdfelixj" className="text-blue-900 hover:underline font-medium">GitHub</a>, visit my{' '}
+								<a href="https://cdfelixj.netlify.app" className="text-blue-900 hover:underline font-medium">portfolio</a>, and reach out at{' '}
 								<a href="mailto:cd.felixj@gmail.com" className="text-blue-900 hover:underline font-medium">cd.felixj@gmail.com</a>.
 							</p>
 						</motion.div>
@@ -387,6 +402,104 @@ function App() {
 					</div>
 				</div>
 
+				{/* Activities & Achievements Section */}
+				<div id="activities" className="mb-32">
+					<h2 className="text-4xl font-bold text-blue-900 mb-4">Activities & Achievements</h2>
+					<p className="text-xl text-gray-600 mb-12">Leadership roles, awards, hackathons, and community contributions that shaped my journey</p>
+					
+					<div className="space-y-16">
+						<motion.div
+							initial={{ opacity: 0, y: 30 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.8 }}
+							viewport={{ once: true }}
+							className="space-y-6"
+						>
+							<h3 className="text-3xl font-bold text-blue-900">International Hackathon Participation</h3>
+							<p className="text-xl font-medium text-gray-800">2024 - 2025 | Global Tech Communities</p>
+							<p className="text-lg leading-relaxed">
+								Active participant in international hackathons across multiple countries, focusing on blockchain, AI/ML, and innovative technology solutions. Gained international exposure to diverse tech communities through rapid prototyping and cross-cultural collaboration.
+							</p>
+							<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+								<div className="bg-blue-50 p-4 rounded-lg">
+									<h4 className="font-semibold text-blue-900">EasyA Consensus Hackathon 2024</h4>
+									<p className="text-sm text-gray-600">Hong Kong • Blockchain/Web3</p>
+								</div>
+								<div className="bg-blue-50 p-4 rounded-lg">
+									<h4 className="font-semibold text-blue-900">DeveloperWeek AI/ML 2025</h4>
+									<p className="text-sm text-gray-600">San Francisco, USA • AI/ML</p>
+								</div>
+								<div className="bg-blue-50 p-4 rounded-lg">
+									<h4 className="font-semibold text-blue-900">YouthxHack 2024</h4>
+									<p className="text-sm text-gray-600">Singapore • Youth Technology</p>
+								</div>
+								<div className="bg-blue-50 p-4 rounded-lg">
+									<h4 className="font-semibold text-blue-900">HackTheNorth 2025</h4>
+									<p className="text-sm text-gray-600">Canada • General Technology</p>
+								</div>
+							</div>
+							<div className="flex flex-wrap gap-3">
+								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">International Exposure</span>
+								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Blockchain/Web3</span>
+								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">AI/ML</span>
+								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Cross-cultural Collaboration</span>
+							</div>
+						</motion.div>
+
+						<motion.div
+							initial={{ opacity: 0, y: 30 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.8, delay: 0.2 }}
+							viewport={{ once: true }}
+							className="space-y-6"
+						>
+							<h3 className="text-3xl font-bold text-blue-900">AWS Student Ambassador</h3>
+							<p className="text-xl font-medium text-gray-800">Jan 2025 - Present | Amazon Web Services</p>
+							<p className="text-lg leading-relaxed">
+								Liaison between AWS and the student community, organizing events and promoting AWS resources to increase engagement. Supported the successful execution of AWS Summit 2025 by assisting with event logistics and partner coordination.
+							</p>
+							<div className="flex flex-wrap gap-3">
+								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Leadership</span>
+								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Cloud Technology</span>
+								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Event Management</span>
+							</div>
+						</motion.div>
+
+						<motion.div
+							initial={{ opacity: 0, y: 30 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.8, delay: 0.4 }}
+							viewport={{ once: true }}
+							className="space-y-6"
+						>
+							<h3 className="text-3xl font-bold text-blue-900">HK Techathon+ 2025</h3>
+							<p className="text-xl font-medium text-gray-800">2025 | Hong Kong Technology Competition</p>
+							<p className="text-lg leading-relaxed">
+								Achieved 3rd Runner-up and Merit Award in Hong Kong's premier technology competition, developing innovative solutions alongside talented teams from across the region.
+							</p>
+							<div className="flex flex-wrap gap-3">
+								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">3rd Runner-up</span>
+								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Merit Award</span>
+								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Innovation</span>
+							</div>
+						</motion.div>
+					</div>
+
+					<div className="text-center mt-12">
+						<motion.button
+							onClick={() => setShowDetailedActivities(true)}
+							className="inline-flex items-center px-8 py-4 bg-blue-900 text-white rounded-lg font-semibold text-lg hover:bg-blue-800 transition-colors duration-300"
+							whileHover={{ scale: 1.02 }}
+							whileTap={{ scale: 0.98 }}
+						>
+							<svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+							</svg>
+							View All Activities & Achievements
+						</motion.button>
+					</div>
+				</div>
+
 				{/* Contact Section */}
 				<div id="contact">
 					<h2 className="text-4xl font-bold text-blue-900 mb-8">Let's Connect</h2>
@@ -403,7 +516,7 @@ function App() {
 							<a href="tel:+85294381766" className="text-blue-900 hover:underline font-medium">+852 94381766</a>.
 							I'm based in Taikoo, Hong Kong and always open to discussing new opportunities. You can also find me on{' '}
 							<a href="https://github.com/cdfelixj" className="text-blue-900 hover:underline font-medium">GitHub</a>,{' '}
-							<a href="https://linkedin.com/in/felixlp" className="text-blue-900 hover:underline font-medium">LinkedIn</a>, and explore more of my work in my{' '}
+							<a href="https://linkedin.com/in/jfelixpangestu/" className="text-blue-900 hover:underline font-medium">LinkedIn</a>, and explore more of my work in my{' '}
 							<a href="#" className="text-blue-900 hover:underline font-medium">complete portfolio</a>.
 						</p>
 					</div>
@@ -429,6 +542,13 @@ function App() {
 				open={showDetailedExperience} 
 				onClose={() => setShowDetailedExperience(false)} 
 			/>
+			<DetailedActivitiesView 
+				open={showDetailedActivities} 
+				onClose={() => setShowDetailedActivities(false)} 
+			/>
+			
+			{/* Floating Navigation */}
+			<FloatingNav />
 		</div>
 	);
 }

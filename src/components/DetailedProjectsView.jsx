@@ -1,52 +1,70 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const DetailedProjectsView = ({ open, onClose }) => {
+const DetailedProjectsView = React.memo(({ open, onClose }) => {
+  const scrollContainerRef = useRef(null);
   const projects = [
     {
       title: "POWERLIFT E-COMMERCE", 
-      description: "Full-stack e-commerce platform specializing in fitness equipment with advanced inventory management and customer analytics.",
-      technical: "Built with MERN stack architecture, featuring React frontend with Redux state management, Express.js RESTful API, and MongoDB database.",
-      links: ["GitHub", "Live Site"],
+      description: "A full-stack E-Commerce platform for powerlifting equipment using the MERN stack with integrated Stripe payment processing.",
+      technical: "Built with MongoDB, Express, React, and Node.js. Features admin dashboard for adding, editing, and managing products and orders.",
+      links: ["GitHub", "Live Site", "Admin Dashboard"],
       githubUrl: "https://github.com/cdfelixj/powerlift-ecommerce",
-      liveUrl: "https://powerlift-frontend.onrender.com"
-    },
-    {
-      title: "READ THE VISION",
-      description: "AI-powered mobile application helping visually impaired individuals navigate through real-time object detection and audio feedback.",
-      technical: "Developed using TensorFlow Lite for optimized mobile ML inference, React Native for cross-platform compatibility, and Google Cloud Vision API for enhanced accuracy.",
-      impact: "Secured $10,000 funding from HKBU Innovation Challenge, recognized for social impact and technical innovation.",
-      links: ["GitHub", "Demo Video"],
-      githubUrl: "https://github.com/cdfelixj/read-the-vision"
+      liveUrl: "https://powerlift-ecommerce-frontend.onrender.com/",
+      adminUrl: "https://powerlift-ecommerce-1.onrender.com/"
     },
     {
       title: "MEALMATCH",
-      description: "Social impact platform connecting food donors with local charities to reduce food waste and address hunger in Hong Kong communities.",
-      technical: "Built with React frontend, Firebase real-time database, Google Maps API for location services, and Hungarian Algorithm for optimal matching.",
-      impact: "Facilitated over 500 successful food donations, preventing 2,000+ meals from going to waste.",
+      description: "Web platform designed to connect food bank donors with beneficiaries in need using the Hungarian Algorithm for efficient matching.",
+      technical: "Built with React, Firebase, and Leaflet.js. Features real-time dashboard to monitor food donations and distributions utilizing Firestore.",
+      impact: "Engineered matching logic with Hungarian Algorithm for optimized donor-beneficiary pairing based on needs.",
       links: ["GitHub", "Case Study"],
       githubUrl: "https://github.com/cdfelixj/mealmatch"
     },
     {
-      title: "LLM PERSONAL BOT",
-      description: "Intelligent conversational AI system with personality imitation capabilities using advanced language models and retrieval-augmented generation.",
-      technical: "Implemented using Python with LangChain framework, Streamlit for user interface, OpenAI API integration, and ChromaDB for vector storage.",
+      title: "MOVIE REVIEW SENTIMENT ANALYSIS",
+      description: "Deep Learning NLP project for sentiment classification benchmarking multiple model architectures.",
+      technical: "Benchmarked RNN, LSTM, GRU, CNN, and attention-based models using Python, PyTorch, NLTK, and Gensim.",
+      impact: "Achieved up to 81% test accuracy with Word2Vec embeddings for enhanced word representation.",
+      links: ["GitHub", "Results"],
+      githubUrl: "https://github.com/cdfelixj/rottenTomatoesSentimentAnalysis"
+    },
+    {
+      title: "BUDGET APP",
+      description: "Personal Finance Tracker with user authentication and dynamic data visualization.",
+      technical: "Built with Next.js, Firebase for secure data storage, and Chart.js for interactive charts.",
       links: ["GitHub", "Live Demo"],
+      githubUrl: "https://github.com/cdfelixj/budget-app",
+      liveUrl: "https://budget-app-nextjs-beta.vercel.app/"
+    },
+    {
+      title: "PERSONAL CHATBOT",
+      description: "A chatbot that acts as a digital version of Felix, providing details about educational history, work experience, hobbies and interests.",
+      technical: "Built with Python, Streamlit, LangChain, and OpenHermes-2.5-Mistral-7B as base model. Scrapes LinkedIn profile and reads through CV.",
+      links: ["GitHub", "Demo"],
       githubUrl: "https://github.com/cdfelixj/personalBot"
     },
     {
-      title: "FINANCIAL DOCUMENT CLASSIFIER",
-      description: "Machine learning system for automated classification of financial documents using advanced NLP techniques and transformer models.",
-      technical: "Developed with PyTorch framework, fine-tuned BERT models for domain-specific classification, achieving 95% accuracy through comprehensive data preprocessing and evaluation.",
-      impact: "Achieved 95% accuracy in production testing, significantly reducing manual document processing time.",
-      links: ["Research Paper", "Model Details"]
+      title: "DISCORD BOT",
+      description: "Discord bot with comprehensive user management features for server administration.",
+      technical: "Developed in Java using Discord API. Features user registration via unique codes, profile linking, test score tracking, and exchange rate calculations.",
+      links: ["GitHub"],
+      githubUrl: "https://github.com/cdfelixj/discordBot"
     },
     {
-      title: "AUTOMATED RECONCILIATION SYSTEM",
-      description: "Full-stack financial reconciliation system built during Cathay Pacific internship, automating complex financial data matching processes.",
-      technical: "Built with React/TypeScript frontend and Python Flask backend, PostgreSQL database, JWT authentication, and Docker containerization.",
-      impact: "Reduced manual reconciliation time from hours to minutes, improving accuracy and efficiency of financial operations.",
-      links: ["Technical Overview"]
+      title: "POWERLIFTING DATA ANALYSIS",
+      description: "Exploratory data analysis of powerlifting records with comprehensive data visualization.",
+      technical: "Conducted using Python, Pandas, Matplotlib, and Seaborn. Visualized key metrics like Wilks score and lift-to-bodyweight ratios.",
+      impact: "Cleaned and processed large dataset for comprehensive insights into powerlifting performance patterns.",
+      links: ["GitHub", "Analysis"],
+      githubUrl: "https://github.com/cdfelixj/powerlifting-viz"
+    },
+    {
+      title: "DRAWIIOPROMPT",
+      description: "A Chrome extension that helps you make diagrams with prompts - recently updated.",
+      technical: "Developed in JavaScript as a browser extension to enhance diagramming workflow.",
+      links: ["GitHub"],
+      githubUrl: "https://github.com/cdfelixj/DrawIOPrompt"
     }
   ];
 
@@ -55,10 +73,11 @@ const DetailedProjectsView = ({ open, onClose }) => {
   return (
     <AnimatePresence>
       <motion.div
+        ref={scrollContainerRef}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
         style={{
           position: 'fixed',
           top: 0,
@@ -70,7 +89,13 @@ const DetailedProjectsView = ({ open, onClose }) => {
           overflow: 'auto',
         }}
       >
-        <div className="min-h-screen bg-white py-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 30 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="min-h-screen bg-white py-16"
+        >
           <div className="max-w-6xl mx-auto px-8">
             {/* Header */}
             <div className="flex justify-between items-center mb-16">
@@ -78,12 +103,17 @@ const DetailedProjectsView = ({ open, onClose }) => {
                 <h1 className="text-5xl font-bold text-blue-900 mb-4">Complete Project Portfolio</h1>
                 <p className="text-xl text-gray-600">Innovative solutions that make a meaningful impact</p>
               </div>
-              <button 
+              <motion.button 
                 onClick={onClose}
                 className="text-blue-900 hover:text-blue-700 transition-colors duration-300 text-2xl font-bold p-2"
+                whileHover={{ 
+                  scale: 1.1,
+                  transition: { duration: 0.2, ease: "easeOut" }
+                }}
+                whileTap={{ scale: 0.9 }}
               >
                 ✕
-              </button>
+              </motion.button>
             </div>
 
             {/* Projects */}
@@ -91,9 +121,13 @@ const DetailedProjectsView = ({ open, onClose }) => {
               {projects.map((project, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  transition={{ 
+                    duration: 0.4, 
+                    delay: index * 0.08,
+                    ease: "easeOut"
+                  }}
                   className="space-y-6"
                 >
                   <h3 className="text-3xl font-bold text-blue-900">{project.title}</h3>
@@ -144,18 +178,23 @@ const DetailedProjectsView = ({ open, onClose }) => {
 
             {/* Back to top */}
             <div className="mt-16 pt-8 border-t border-gray-200 text-center">
-              <button 
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              <motion.button 
+                onClick={() => scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' })}
                 className="text-blue-900 hover:text-blue-700 font-medium transition-colors duration-300"
+                whileHover={{ 
+                  y: -2,
+                  transition: { duration: 0.2, ease: "easeOut" }
+                }}
+                whileTap={{ y: 0 }}
               >
                 Back to top ↑
-              </button>
+              </motion.button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </motion.div>
     </AnimatePresence>
   );
-};
+});
 
 export default DetailedProjectsView;

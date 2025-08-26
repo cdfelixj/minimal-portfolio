@@ -41,6 +41,7 @@ const NavigationBar = ({ darkMode, toggleTheme }) => {
     { name: 'Skills', id: 'skills' },
     { name: 'Experience', id: 'experience' },
     { name: 'Projects', id: 'projects' },
+    { name: 'Activities', id: 'activities' },
     { name: 'Contact', id: 'contact' },
   ];
 
