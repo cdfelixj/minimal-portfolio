@@ -38,43 +38,48 @@ function App() {
 	}, []);
 
 	const experiences = [
-		{
-			company: "CATHAY PACIFIC",
-			role: "Digital & IT Intern", 
-			period: "Jul 2025 – Aug 2025",
-			description: "Delivered full-stack MVP with automated reconciliation and coordinated hackathon for 600+ participants.",
-			details: [
-				"Delivered a full-stack MVP (React/TypeScript, Python Flask) with automated reconciliation and validation",
-				"Coordinated hackathon masterclasses for 600+ participants, managing logistics and technical workshops",
-				"Supported integrations with top-tier U.S. bank and global technology partner"
-			],
-			technologies: ["React", "TypeScript", "Python", "Flask"]
-		},
-		{
-			company: "WIZPRESSO",
-			role: "Software Engineer Intern",
-			period: "Jun 2024 - Aug 2024", 
-			description: "Refactored core services reducing API latency by 22% and implemented OAuth 2.0/OIDC for 15k+ users.",
-			details: [
-				"Refactored core services from SvelteKit/Prisma to ASP.NET Core Web API, reducing API latency by 22%",
-				"Implemented OAuth 2.0/OIDC with JWT SSO for 15k+ users",
-				"Led zero-downtime migration from SQL Server to Amazon RDS"
-			],
-			technologies: ["ASP.NET Core", "OAuth 2.0", "Amazon RDS", "SvelteKit"]
-		},
-		{
-			company: "HKBU",
-			role: "Research Assistant",
-			period: "Jan 2024 – Aug 2024",
-			description: "Adapted 7B LLM for financial sentiment analysis using PEFT-LoRA with >95% fewer parameters.",
-			details: [
-				"Adapted a 7B LLM for financial sentiment analysis using PEFT–LoRA technique",
-				"Achieved higher F1 scores than BERT with >95% fewer trainable parameters",
-				"Integrated optimized model into LangChain pipeline for large-scale inference"
-			],
-			technologies: ["Python", "PEFT-LoRA", "LangChain", "PyTorch"]
-		}
+	{
+		company: "CATHAY PACIFIC",
+		website: "https://www.cathaypacific.com/",
+		role: "Digital & IT Intern",
+		period: "Jul 2025 – Aug 2025",
+		description: "Worked with Loyalty Solutions, Cargo Digital, and Hackathon Partnership teams on full-stack development, automation, and large-scale event coordination.",
+		details: [
+		"Developed a full-stack MVP (React/TypeScript, Flask) with validation, rate versioning, and rule engine",
+		"Automated reconciliation/reporting for ~40K shipments (~HKD 10M), improving accuracy and auditability",
+		"Coordinated hackathon masterclasses for 600+ participants across internal units and external partners",
+		"Built VBA-powered scheduling system optimizing on-call rostering and reducing conflicts"
+		],
+		technologies: ["React", "TypeScript", "Python", "Flask", "VBA"]
+	},
+	{
+		company: "WIZPRESSO",
+		website: "https://wizpresso.com/",
+		role: "Software Engineer Intern",
+		period: "Jun 2024 – Aug 2024",
+		description: "Worked on refactoring core services, implementing authentication systems, and leading production database migration efforts.",
+		details: [
+		"Refactored APIs from SvelteKit/Prisma to ASP.NET Core, reducing latency by 22% for 1,500+ DAUs",
+		"Implemented OAuth 2.0/OIDC with JWT SSO for 15k+ users, passing security and compliance reviews",
+		"Led zero-downtime SQL Server → Amazon RDS migration with <0.05% variance"
+		],
+		technologies: ["ASP.NET Core", "OAuth 2.0", "OIDC", "Amazon RDS", "SvelteKit"]
+	},
+	{
+		company: "HONG KONG BAPTIST UNIVERSITY",
+		website: "https://www.hkbu.edu.hk/",
+		role: "Research Assistant",
+		period: "Jan 2024 – Aug 2024",
+		description: "Conducted research on financial sentiment analysis using Large Language Models with parameter-efficient finetuning.",
+		details: [
+		"Adapted 7B LLM for financial sentiment & NER using PEFT–LoRA, trained on 20k+ transcripts",
+		"Achieved higher F1 scores vs. BERT with >95% fewer params and ~60–70% resource savings",
+		"Integrated optimized model into LangChain pipeline for scalable inference"
+		],
+		technologies: ["Python", "PEFT-LoRA", "QLoRA", "LangChain", "Transformers"]
+	},
 	];
+
 
 	const projects = [
 		{
@@ -292,7 +297,36 @@ function App() {
 									
 									<div className="space-y-4">
 										<div>
-											<h3 className="text-2xl font-bold text-blue-900">{exp.company}</h3>
+											<div className="flex items-center gap-3 mb-2">
+												<h3 className="text-2xl font-bold text-blue-900">{exp.company}</h3>
+												<motion.a
+													href={exp.website}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="inline-flex items-center justify-center w-8 h-8 bg-blue-100 hover:bg-blue-200 text-blue-900 rounded-full transition-colors duration-300"
+													whileHover={{ 
+														scale: 1.05,
+														transition: { duration: 0.2, ease: "easeOut" }
+													}}
+													whileTap={{ scale: 0.95 }}
+													title="Visit company website"
+												>
+													<svg 
+														className="w-4 h-4" 
+														fill="none" 
+														stroke="currentColor" 
+														viewBox="0 0 24 24" 
+														xmlns="http://www.w3.org/2000/svg"
+													>
+														<path 
+															strokeLinecap="round" 
+															strokeLinejoin="round" 
+															strokeWidth={2} 
+															d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
+														/>
+													</svg>
+												</motion.a>
+											</div>
 											<h4 className="text-xl font-semibold text-gray-800">{exp.role}</h4>
 											<p className="text-gray-600">{exp.period}</p>
 										</div>
@@ -349,7 +383,7 @@ function App() {
 								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
 								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
 							</svg>
-							View Full Professional Journey
+							View the Full & Detailed Journey
 						</motion.button>
 					</div>
 				</div>

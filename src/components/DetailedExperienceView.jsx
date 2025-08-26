@@ -8,6 +8,7 @@ const DetailedExperienceView = React.memo(({ open, onClose }) => {
   const experiences = [
     {
       company: "CATHAY PACIFIC",
+      website: "https://www.cathaypacific.com/",
       role: "Digital & IT Intern", 
       period: "Jul 2025 – Aug 2025",
       description: "Delivered full-stack MVP with automated reconciliation, managed hackathon masterclasses for 600+ participants, and built enterprise documentation systems.",
@@ -22,7 +23,21 @@ const DetailedExperienceView = React.memo(({ open, onClose }) => {
       technologies: ["React", "TypeScript", "Python", "Flask", "UML", "VBA"]
     },
     {
+      company: "OXBRIDGE ECONOMICS",
+      website: "https://www.oxbridge-econ.com/",
+      role: "Software Engineer Intern",
+      period: "Feb 2025 – May 2025",
+      description: "Worked on a new MVP application applying news sentiment analysis to predict stocks and built core product features for fintech clients.",
+      details: [
+        "Created MVP full-stack application (React, Flask, Python) to visualize and analyze news sentiment for stock prediction",
+        "Integrated Stripe payment system for seamless transactions",
+        "Collaborated with research team to tune sentiment analysis pipeline and present results to stakeholders"
+      ],
+      technologies: ["React", "Python", "Flask", "Stripe"]
+    },
+    {
       company: "WIZPRESSO",
+      website: "https://wizpresso.com/",
       role: "Software Engineer Intern",
       period: "Jun 2024 - Aug 2024", 
       description: "Replatformed key services reducing API latency by 22%, implemented secure OAuth 2.0/OIDC for 15k+ users, and led zero-downtime production migration.",
@@ -37,6 +52,7 @@ const DetailedExperienceView = React.memo(({ open, onClose }) => {
     },
     {
       company: "HONG KONG BAPTIST UNIVERSITY",
+      website: "https://www.hkbu.edu.hk/",
       role: "Research Assistant",
       period: "Jan 2024 – Aug 2024",
       description: "Domain-adapted 7B LLM for financial sentiment analysis using PEFT-LoRA, achieving superior F1 scores vs BERT with 95% fewer parameters.",
@@ -49,6 +65,7 @@ const DetailedExperienceView = React.memo(({ open, onClose }) => {
     },
     {
       company: "ADMAZES",
+      website: "https://admazes.com/",
       role: "Software Engineer Intern",
       period: "Dec 2023 - Jan 2024",
       description: "Enhanced Local LLM with RAG pipeline improving QA accuracy by 25% and optimized BigQuery infrastructure for 30% better retrieval performance.",
@@ -62,6 +79,7 @@ const DetailedExperienceView = React.memo(({ open, onClose }) => {
     },
     {
       company: "MARKWORTH",
+      website: "https://www.linkedin.com/company/markworth-group?originalSubdomain=hk",
       role: "Product Management Intern",
       period: "May 2023 - Aug 2023",
       description: "Integrated websites with Odoo's backend ERP system and supported full product development lifecycle through market research and cross-functional collaboration.",
@@ -146,7 +164,36 @@ const DetailedExperienceView = React.memo(({ open, onClose }) => {
                     
                     <div className="space-y-4">
                       <div>
-                        <h3 className="text-2xl font-bold text-blue-900">{exp.company}</h3>
+                        <div className="flex items-center gap-3 mb-2">
+                          <h3 className="text-2xl font-bold text-blue-900">{exp.company}</h3>
+                          <motion.a
+                            href={exp.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center w-8 h-8 bg-blue-100 hover:bg-blue-200 text-blue-900 rounded-full transition-colors duration-300"
+                            whileHover={{ 
+                              scale: 1.05,
+                              transition: { duration: 0.2, ease: "easeOut" }
+                            }}
+                            whileTap={{ scale: 0.95 }}
+                            title="Visit company website"
+                          >
+                            <svg 
+                              className="w-4 h-4" 
+                              fill="none" 
+                              stroke="currentColor" 
+                              viewBox="0 0 24 24" 
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path 
+                                strokeLinecap="round" 
+                                strokeLinejoin="round" 
+                                strokeWidth={2} 
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
+                              />
+                            </svg>
+                          </motion.a>
+                        </div>
                         <h4 className="text-xl font-semibold text-gray-800">{exp.role}</h4>
                         <p className="text-gray-600">{exp.period}</p>
                       </div>
