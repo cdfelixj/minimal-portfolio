@@ -10,86 +10,70 @@ const DetailedExperienceView = React.memo(({ open, onClose }) => {
       company: "CATHAY PACIFIC",
       role: "Digital & IT Intern", 
       period: "Jul 2025 – Aug 2025",
-      description: "Delivered full-stack MVP with automated reconciliation, API standardization across teams, and managed hackathon for 600+ participants.",
+      description: "Delivered full-stack MVP with automated reconciliation, managed hackathon masterclasses for 600+ participants, and built enterprise documentation systems.",
       details: [
-        "Delivered a full-stack MVP (React/TypeScript, Python Flask) with automated reconciliation and validation; enabled accurate, scalable cross-border calculations and streamlined financial reporting, reducing errors and manual work",
-        "Assisted API standardization across teams and high-value external partners: facilitated design discussions, captured decisions in sequence/flow diagrams, and clarified endpoints, payloads, and error responses adopted by several services",
-        "Supported integrations with a top-tier U.S. bank and a global technology partner, clarifying requirements, producing documentation, and executing end-to-end testing for rapid deployments across both projects",
-        "Engineered automated scheduling platform by implementing rostering algorithm, improving multi-team on-call assignment efficiency and minimizing scheduling conflicts",
-        "Coordinated hackathon masterclasses for 600+ participants by managing relationships between internal business units and external partners, overseeing logistics coordination and maintaining project documentation"
+        "Delivered an 8‑week full‑stack MVP (React/TypeScript + Python Flask) grounded in clear UML workflows/data models; integrated validation, rate versioning, and a jurisdictional rule engine to ensure accurate, scalable cross‑border calculations and reduce miscalculation risk",
+        "Automated reconciliation and monthly reporting for ~40K shipment packets, covering ~HKD 10M in tariffs; reduced manual effort by hours and improved auditability with clear lineage from source data through computed tariffs and adjustments",
+        "Assisted API standardization across teams and external partners: helped run design discussions, captured decisions in sequence/flow diagrams, and clarified endpoints, payloads, and error responses adopted by several services",
+        "Coordinated technical hackathon masterclasses for 600+ participants by managing cross-functional relationships between internal business units and external partners, overseeing logistics coordination and maintaining comprehensive project documentation",
+        "Built automated scheduling system reducing manual effort by creating VBA-powered rostering algorithm, optimizing multi-team on-call assignments and reducing scheduling conflicts",
+        "Developed enterprise CLM documentation suite achieving faster user onboarding by creating structured guides, process workflows, and delegation frameworks, enabling efficient system adoption for 50+ cross-functional users"
       ],
-      technologies: ["React", "TypeScript", "Python", "Flask"]
+      technologies: ["React", "TypeScript", "Python", "Flask", "UML", "VBA"]
     },
     {
       company: "WIZPRESSO",
       role: "Software Engineer Intern",
       period: "Jun 2024 - Aug 2024", 
-      description: "Refactored core services reducing API latency by 22%, implemented OAuth 2.0/OIDC for 15k+ users, and led zero-downtime migration to Amazon RDS.",
+      description: "Replatformed key services reducing API latency by 22%, implemented secure OAuth 2.0/OIDC for 15k+ users, and led zero-downtime production migration.",
       details: [
-        "Refactored core services from SvelteKit/Prisma to ASP.NET Core Web API, reducing API latency by 22% (1.6s→1.24s) through async I/O, DbContext tuning, and in-memory caching; delivered improvements to 1,500+ daily users",
-        "Implemented OAuth 2.0/OIDC with JWT SSO for 15k+ users; enforced secure standards (PKCE, key rotation), passing external security audits with no critical findings",
-        "Led zero-downtime migration from SQL Server to Amazon RDS using AWS DMS with CDC; ensured <0.05% data variance and automated reconciliation before switchover",
-        "Built and integrated new user management features across the portal stack, enhancing account administration for users"
+        "Replatformed key services from SvelteKit + Prisma to ASP.NET Core Web API, cutting median API latency ~22% (1.6s to 1.24s) by optimizing async I/O, tuning DbContext usage/connection settings, and adding in-memory caching for hot read endpoints; serving 1,500+ DAUs",
+        "Implemented OAuth 2.0/OIDC with JWT (RS256), enabling SSO for 15k+ accounts; enforced PKCE for SPA/mobile clients, rotating keys via JWKS. Passed external pen test and SOC 2 controls review with no high/critical findings",
+        "Led production migration from SQL Server to Amazon RDS using AWS DMS with CDC and parallel load; achieved zero-downtime cutover with <0.05% variance pre-cutover, verified via row-count and checksum reconciliation; discrepancies auto-remediated before final switch",
+        "Developed 15 new features and optimized 10 existing ones using the Svelte framework. Improving portal speed by 20%, leading to an increase in user engagement and a 20% reduction in load times",
+        "Collaborated effectively with cross-functional teams utilizing agile methodologies and Jira to enhance project delivery and responsiveness to change"
       ],
-      technologies: ["SvelteKit", "Prisma", "ASP.NET Core", "OAuth 2.0", "OIDC", "JWT", "SQL Server", "Amazon RDS", "AWS DMS"]
+      technologies: ["SvelteKit", "Prisma", "ASP.NET Core", "OAuth 2.0", "OIDC", "JWT", "SQL Server", "Amazon RDS", "AWS DMS", "Jira"]
     },
     {
       company: "HONG KONG BAPTIST UNIVERSITY",
       role: "Research Assistant",
       period: "Jan 2024 – Aug 2024",
-      description: "Adapted 7B LLM for financial sentiment analysis using PEFT-LoRA, achieving higher F1 scores than BERT with >95% fewer parameters.",
+      description: "Domain-adapted 7B LLM for financial sentiment analysis using PEFT-LoRA, achieving superior F1 scores vs BERT with 95% fewer parameters.",
       details: [
-        "Adapted a 7B LLM for financial sentiment and NER using PEFT–LoRA (4-bit QLoRA); achieved higher F1 scores than BERT with >95% fewer trainable parameters and 60–70% lower compute use",
-        "Integrated the optimized model into a LangChain pipeline for large-scale financial inference",
-        "Conducted research on the efficacy of using AI to read Financial Statements under Dr Kim Yoon Ho",
-        "Developed comprehensive evaluation frameworks for financial text analysis models",
-        "Published findings on parameter-efficient fine-tuning techniques for financial NLP"
+        "Domain-adapted a 7B LLM for financial sentiment and NER using PEFT–LoRA in Transformers (4‑bit QLoRA), training on 20,000+ earnings-call transcripts; improved task F1 scores vs. BERT baselines while reducing trainable params by >95% and compute/memory by ~60–70% and integrated the model into a LangChain pipeline for large-scale inference",
+        "Conducted research and finetuning of a Large Language Model through LangChain to analyze earnings 20,000 call transcripts and conferences, significantly enhancing its capabilities in classification and sentiment analysis",
+        "Authored detailed documentation on research progress regarding the efficacy of using Large Language Models to process corporate financial statements"
       ],
-      technologies: ["LLM", "PEFT-LoRA", "QLoRA", "BERT", "LangChain"]
+      technologies: ["LLM", "PEFT-LoRA", "QLoRA", "BERT", "LangChain", "Transformers", "Financial NLP"]
     },
     {
       company: "ADMAZES",
       role: "Software Engineer Intern",
       period: "Dec 2023 - Jan 2024",
-      description: "Built RAG pipeline improving QA accuracy by 25% and reducing hallucinations by ~60% through better retrieval and citation checks.",
+      description: "Enhanced Local LLM with RAG pipeline improving QA accuracy by 25% and optimized BigQuery infrastructure for 30% better retrieval performance.",
       details: [
+        "Enhanced a Local Large Language Model using LangChain, HuggingFace, and Streamlit, improving response accuracy by 25% through better semantic understanding and advanced search capabilities with the RAG approach",
         "Built a RAG pipeline for a local LLM using LangChain and HuggingFace embeddings; improved QA accuracy by 25% on an internal test set and reduced hallucinations by ~60% via better retrieval and citation checks",
-        "Enhanced BigQuery pipeline for RAG; boosted LLM retrieval and accuracy by 25% through SQL optimization on 50+ queries",
-        "Developed comprehensive testing frameworks for LLM accuracy validation",
-        "Implemented citation verification systems to reduce model hallucinations"
+        "Optimized BigQuery analytics infrastructure using advanced SQL techniques including partition pruning, query parallelization, and columnar scanning, executing 50+ complex queries with JOINs and window functions to achieve 30% retrieval performance improvement",
+        "Analyzed datasets with Google BigQuery, optimizing data retrieval by 30% and generating insights with 100+ complex SQL queries, leading to a 20% boost in operational efficiency"
       ],
-      technologies: ["RAG", "LLM", "LangChain", "HuggingFace", "BigQuery", "SQL"]
+      technologies: ["RAG", "LLM", "LangChain", "HuggingFace", "BigQuery", "SQL", "Streamlit"]
     },
     {
       company: "MARKWORTH",
       role: "Product Management Intern",
-      period: "2022 Summer",
-      description: "Part of the product team contributing to product design, implementation and discussions. Started using HTML, CSS and Javascript with Odoo.",
+      period: "May 2023 - Aug 2023",
+      description: "Integrated websites with Odoo's backend ERP system and supported full product development lifecycle through market research and cross-functional collaboration.",
       details: [
+        "Integrated and developed websites with Odoo's backend ERP system to pull product catalogs, service listings, project details and events dynamically",
+        "Supported the full product development lifecycle by conducting market research, creating requirements docs, developing prototypes, tracking metrics, and working cross-functionally with multiple departments",
         "Part of the product team contributing to product design, implementation and discussions",
-        "Started using HTML, CSS and Javascript with Odoo to create websites for the company and clients",
-        "Participated in client meetings and requirement gathering sessions",
-        "Assisted in creating user documentation and training materials",
-        "Collaborated with senior developers on complex feature implementations"
       ],
-      technologies: ["HTML", "CSS", "Javascript", "Odoo"]
+      technologies: ["HTML", "CSS", "Javascript", "Odoo", "ERP Systems"]
     },
-    {
-      company: "ROSARYHILL SECONDARY SCHOOL",
-      role: "First Lines of Code",
-      period: "2018",
-      description: "ICT class introduction to programming - where Felix first encountered programming and began his coding journey.",
-      details: [
-        "Successfully compiled and executed first program in high school ICT class",
-        "Learned fundamental programming concepts including loops and conditionals",
-        "Developed problem-solving mindset through programming exercises", 
-        "Discovered passion for technology and software development",
-        "Built strong foundation in logical thinking and algorithm design",
-        "Couldn't have imagined this was the start of hours and hours of coding to come"
-      ],
-      technologies: ["Basic Programming Concepts", "Loops", "Conditionals", "Problem Solving"]
-    }
   ];
+
 
   if (!open) return null;
 

@@ -8,7 +8,7 @@ const DetailedActivitiesView = React.memo(({ open, onClose }) => {
 	const activities = [
 		{
 			title: "INTERNATIONAL HACKATHON PARTICIPATION",
-			period: "2024 - 2025",
+			period: "2022 - Present",
 			organization: "Various International Hackathons",
 			description: "Active participant in prestigious international hackathons, developing innovative solutions across blockchain, AI/ML, FinTech, and social impact domains.",
 			details: [

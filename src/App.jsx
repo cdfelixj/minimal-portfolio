@@ -153,7 +153,7 @@ function App() {
 									transition={{ duration: 0.8, delay: 0.4 }}
 									className="text-2xl text-gray-600 mb-2"
 								>
-									Software Engineer & AI Research Enthusiast
+									Software Engineer
 								</motion.div>
 								
 								<motion.div
@@ -173,7 +173,7 @@ function App() {
 								className="w-64 h-64 rounded-lg overflow-hidden border-4 border-blue-900 flex-shrink-0"
 							>
 								<img 
-									src="/assets/cardPhotos/grad.jpg" 
+									src="/assets/cardPhotos/fish.jpg" 
 									alt="Felix Lau Pangestu"
 									className="w-full h-full object-cover"
 								/>
@@ -181,31 +181,45 @@ function App() {
 						</div>
 
 						<motion.div
-							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.8, delay: 0.8 }}
-							className="space-y-6 text-lg leading-relaxed"
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.8, delay: 0.8 }}
+						className="space-y-6 text-lg leading-relaxed"
 						>
-							<p>
-								Final year student at Hong Kong Baptist University studying Business Computing & Data Analytics with a 3.6/4.0 GPA and First Class Honors. Currently also serving roles as Student Ambassador, Peer Mentor, and CS Tutor.
-							</p>
-							
-							<p>
-								Of Chinese-Indonesian ethnicity, based in Taikoo, Hong Kong with recent international experience from my Fall 2024 exchange semester at Nanyang Technological University in Singapore on a Fung Scholarship. My Cantonese isn't the greatest but my English is native!
-							</p>
-							
-							<p>
-								Passionate about emerging technologies and their applications to solve real-world problems. Currently building Read the Vision, a computer vision solution for deaf/mute communities. Recent accomplishments include reducing API latency by 22% at Wizpresso, adapting 7B LLMs with PEFT-LoRA for financial analysis, and coordinating hackathons for 600+ participants at Cathay Pacific.
-							</p>
-							
-							<p>
-								You can connect with me on{' '}
-								<a href="https://linkedin.com/in/jfelixpangestu/" className="text-blue-900 hover:underline font-medium">LinkedIn</a>, explore my work on{' '}
-								<a href="https://github.com/cdfelixj" className="text-blue-900 hover:underline font-medium">GitHub</a>, visit my{' '}
-								<a href="https://cdfelixj.netlify.app" className="text-blue-900 hover:underline font-medium">portfolio</a>, and reach out at{' '}
-								<a href="mailto:cd.felixj@gmail.com" className="text-blue-900 hover:underline font-medium">cd.felixj@gmail.com</a>.
-							</p>
+						<p>
+							Hi, I’m Felix — a final-year Business Computing & Data Analytics student at Hong Kong Baptist University. Alongside my studies, I’ve enjoyed being involved
+							as a Student Ambassador, Peer Mentor, and Computer Science Tutor, where I get to both represent my university
+							and support fellow students.
+						</p>
+
+						<p>
+							I’m Chinese-Indonesian and currently based in Hong Kong. Last year, I spent a semester abroad at
+							Nanyang Technological University in Singapore on the Fung Scholarship — an experience that really broadened
+							my perspective. My Cantonese is still a work in progress, but I’m a native English speaker and love being
+							part of an international community here in Hong Kong.
+						</p>
+
+						<p>
+							I’m particularly passionate about how emerging technologies can be applied to meaningful, real-world problems.
+							Right now, I’m building <span className="font-medium">Read the Vision</span>,
+							a computer vision project designed to support communication within deaf and mute communities.
+							I’ve also had the chance to work on projects ranging from optimizing APIs to experimenting with
+							large language models — experiences that deepened my interest in combining research with practical,
+							user-focused solutions. Outside of class and work, I play Rugby, Powerlift, and play tons of Poker!
+						</p>
+
+						<p>
+							If you’d like to connect, you can find me on{' '}
+							<a href="https://linkedin.com/in/jfelixpangestu/" className="text-blue-900 hover:underline font-medium">LinkedIn</a>,
+							check out my projects on{' '}
+							<a href="https://github.com/cdfelixj" className="text-blue-900 hover:underline font-medium">GitHub</a>,
+							explore my{' '}
+							<a href="https://cdfelixj.netlify.app" className="text-blue-900 hover:underline font-medium">portfolio</a>,
+							or just drop me a message at{' '}
+							<a href="mailto:cd.felixj@gmail.com" className="text-blue-900 hover:underline font-medium">cd.felixj@gmail.com</a>.
+						</p>
 						</motion.div>
+
 
 						<motion.div
 							initial={{ opacity: 0, y: 20 }}
@@ -416,7 +430,7 @@ function App() {
 							className="space-y-6"
 						>
 							<h3 className="text-3xl font-bold text-blue-900">International Hackathon Participation</h3>
-							<p className="text-xl font-medium text-gray-800">2024 - 2025 | Global Tech Communities</p>
+							<p className="text-xl font-medium text-gray-800">2022 - Present | Global Tech Communities</p>
 							<p className="text-lg leading-relaxed">
 								Active participant in international hackathons across multiple countries, focusing on blockchain, AI/ML, and innovative technology solutions. Gained international exposure to diverse tech communities through rapid prototyping and cross-cultural collaboration.
 							</p>
