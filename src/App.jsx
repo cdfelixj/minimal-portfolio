@@ -43,7 +43,7 @@ function App() {
 		website: "https://www.cathaypacific.com/",
 		role: "Digital & IT Intern",
 		period: "Jul 2025 – Aug 2025",
-		description: "Worked with Loyalty Solutions, Cargo Digital, and Hackathon Partnership teams on full-stack development, automation, and large-scale event coordination.",
+		description: "Delivered full-stack MVP with automated reconciliation, managed hackathon masterclasses for 600+ participants, and built enterprise documentation systems.",
 		details: [
 		"Developed a full-stack MVP (React/TypeScript, Flask) with validation, rate versioning, and rule engine",
 		"Automated reconciliation/reporting for ~40K shipments (~HKD 10M), improving accuracy and auditability",
@@ -57,7 +57,7 @@ function App() {
 		website: "https://wizpresso.com/",
 		role: "Software Engineer Intern",
 		period: "Jun 2024 – Aug 2024",
-		description: "Worked on refactoring core services, implementing authentication systems, and leading production database migration efforts.",
+		description: "Replatformed key services reducing API latency by 22%, implemented secure OAuth 2.0/OIDC for 15k+ users, and led zero-downtime production migration.",
 		details: [
 		"Refactored APIs from SvelteKit/Prisma to ASP.NET Core, reducing latency by 22% for 1,500+ DAUs",
 		"Implemented OAuth 2.0/OIDC with JWT SSO for 15k+ users, passing security and compliance reviews",
@@ -70,7 +70,7 @@ function App() {
 		website: "https://www.hkbu.edu.hk/",
 		role: "Research Assistant",
 		period: "Jan 2024 – Aug 2024",
-		description: "Conducted research on financial sentiment analysis using Large Language Models with parameter-efficient finetuning.",
+		description: "Domain-adapted 7B LLM for financial sentiment analysis using PEFT-LoRA, achieving superior F1 scores vs BERT with 95% fewer parameters.",
 		details: [
 		"Adapted 7B LLM for financial sentiment & NER using PEFT–LoRA, trained on 20k+ transcripts",
 		"Achieved higher F1 scores vs. BERT with >95% fewer params and ~60–70% resource savings",
@@ -483,7 +483,7 @@ function App() {
 								</div>
 								<div className="bg-blue-50 p-4 rounded-lg">
 									<h4 className="font-semibold text-blue-900">HackTheNorth 2025</h4>
-									<p className="text-sm text-gray-600">Canada • General Technology</p>
+									<p className="text-sm text-gray-600">Waterloo, Canada • General Technology</p>
 								</div>
 							</div>
 							<div className="flex flex-wrap gap-3">

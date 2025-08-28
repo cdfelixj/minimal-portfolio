@@ -11,7 +11,7 @@ const DetailedExperienceView = React.memo(({ open, onClose }) => {
       website: "https://www.cathaypacific.com/",
       role: "Digital & IT Intern", 
       period: "Jul 2025 – Aug 2025",
-      description: "Delivered full-stack MVP with automated reconciliation, managed hackathon masterclasses for 600+ participants, and built enterprise documentation systems.",
+      description: "Worked with Loyalty Solutions, Cargo Digital, and Hackathon Partnership teams on full-stack development, automation, and large-scale event coordination.",
       details: [
         "Delivered an 8‑week full‑stack MVP (React/TypeScript + Python Flask) grounded in clear UML workflows/data models; integrated validation, rate versioning, and a jurisdictional rule engine to ensure accurate, scalable cross‑border calculations and reduce miscalculation risk",
         "Automated reconciliation and monthly reporting for ~40K shipment packets, covering ~HKD 10M in tariffs; reduced manual effort by hours and improved auditability with clear lineage from source data through computed tariffs and adjustments",
@@ -40,7 +40,7 @@ const DetailedExperienceView = React.memo(({ open, onClose }) => {
       website: "https://wizpresso.com/",
       role: "Software Engineer Intern",
       period: "Jun 2024 - Aug 2024", 
-      description: "Replatformed key services reducing API latency by 22%, implemented secure OAuth 2.0/OIDC for 15k+ users, and led zero-downtime production migration.",
+      description: "Worked on refactoring core services, implementing authentication systems, and leading production database migration efforts.",
       details: [
         "Replatformed key services from SvelteKit + Prisma to ASP.NET Core Web API, cutting median API latency ~22% (1.6s to 1.24s) by optimizing async I/O, tuning DbContext usage/connection settings, and adding in-memory caching for hot read endpoints; serving 1,500+ DAUs",
         "Implemented OAuth 2.0/OIDC with JWT (RS256), enabling SSO for 15k+ accounts; enforced PKCE for SPA/mobile clients, rotating keys via JWKS. Passed external pen test and SOC 2 controls review with no high/critical findings",
@@ -55,7 +55,7 @@ const DetailedExperienceView = React.memo(({ open, onClose }) => {
       website: "https://www.hkbu.edu.hk/",
       role: "Research Assistant",
       period: "Jan 2024 – Aug 2024",
-      description: "Domain-adapted 7B LLM for financial sentiment analysis using PEFT-LoRA, achieving superior F1 scores vs BERT with 95% fewer parameters.",
+      description: "Conducted research on financial sentiment analysis using Large Language Models with parameter-efficient finetuning.",
       details: [
         "Domain-adapted a 7B LLM for financial sentiment and NER using PEFT–LoRA in Transformers (4‑bit QLoRA), training on 20,000+ earnings-call transcripts; improved task F1 scores vs. BERT baselines while reducing trainable params by >95% and compute/memory by ~60–70% and integrated the model into a LangChain pipeline for large-scale inference",
         "Conducted research and finetuning of a Large Language Model through LangChain to analyze earnings 20,000 call transcripts and conferences, significantly enhancing its capabilities in classification and sentiment analysis",

@@ -91,20 +91,88 @@ const DetailedActivitiesView = React.memo(({ open, onClose }) => {
 			technologies: ["Leadership", "Team Coordination", "Strategic Planning", "Physical Fitness"]
 		},
 		{
-			title: "ACADEMIC EXCELLENCE & LEADERSHIP",
+			title: "FIRST CLASS HONORS ACADEMIC ACHIEVEMENT",
 			period: "2022 - Present",
 			organization: "Hong Kong Baptist University",
-			description: "Maintaining 3.6/4.0 GPA with First Class Honors while serving in multiple leadership roles within the university community.",
+			description: "Maintaining exceptional academic performance with 3.6/4.0 GPA and consistent First Class Honors in Business Computing & Data Analytics.",
 			details: [
 				"Maintained 3.6/4.0 GPA with consistent First Class Honors across all semesters in Business Computing & Data Analytics",
-				"Received First-Gen University Student Scholarship for academic excellence and financial need demonstration",
-				"Awarded Outstanding Student Scholarship for academic achievement and community contribution",
-				"Selected for HKROA scholarship based on academic merit and leadership potential",
-				"Served as Student Ambassador, representing university at official events and prospective student sessions",
-				"Worked as Peer Mentor, guiding 20+ incoming students through academic and social transition",
-				"Provided Computer Science tutoring, helping students achieve average 15% grade improvement"
+				"Demonstrated mastery of complex technical concepts including machine learning, data analytics, and software development",
+				"Consistently ranked among top performers in challenging coursework spanning programming, statistics, and business applications",
+				"Balanced rigorous academic workload with extensive extracurricular commitments and leadership roles",
+				"Applied theoretical knowledge through practical projects and real-world problem-solving scenarios"
 			],
 			technologies: ["Python", "Java", "Data Analytics", "Machine Learning", "Statistics", "R", "SQL"]
+		},
+		{
+			title: "FIRST-GEN UNIVERSITY STUDENT SCHOLARSHIP",
+			period: "2022 - Present",
+			organization: "Hong Kong Baptist University",
+			description: "Awarded prestigious scholarship recognizing academic excellence and first-generation university student status, demonstrating perseverance and achievement.",
+			details: [
+				"Selected for competitive scholarship based on academic merit and first-generation university student background",
+				"Recognized for overcoming socioeconomic barriers to pursue higher education in technology and business",
+				"Demonstrated exceptional motivation and self-directed learning capabilities",
+				"Served as inspiration and role model for other first-generation students in STEM fields",
+				"Maintained scholarship eligibility through consistent academic excellence and community contribution"
+			],
+			technologies: ["Academic Excellence", "Leadership", "Mentorship", "Community Impact"]
+		},
+		{
+			title: "OUTSTANDING STUDENT SCHOLARSHIP",
+			period: "2022 - Present",
+			organization: "Hong Kong Baptist University",
+			description: "Recipient of merit-based scholarship awarded for exceptional academic achievement and significant contribution to university community.",
+			details: [
+				"Selected from competitive pool of high-achieving students based on academic performance and leadership",
+				"Recognized for outstanding contribution to university community through various service initiatives",
+				"Maintained scholarship requirements through sustained academic excellence and active participation",
+				"Demonstrated leadership qualities through peer mentoring and student support activities",
+				"Balanced scholarship responsibilities with academic commitments and personal development goals"
+			],
+			technologies: ["Academic Leadership", "Community Service", "Peer Support", "Excellence Recognition"]
+		},
+		{
+			title: "HONG KONG REACHING OUT AWARD SCHOLARSHIP",
+			period: "2022 - Present",
+			organization: "Hong Kong Reaching Out Award",
+			description: "Selected for prestigious Hong Kong Reaching Out Award scholarship based on academic merit, leadership potential, and commitment to excellence.",
+			details: [
+				"Awarded competitive scholarship recognizing academic excellence and leadership potential",
+				"Selected based on demonstrated commitment to personal development and community contribution",
+				"Maintained scholarship through consistent academic performance and active community engagement",
+				"Participated in HKROA alumni network events and mentorship programs",
+				"Contributed to community development and youth engagement initiatives through scholarship program"
+			],
+			technologies: ["Leadership Development", "Academic Excellence", "Community Engagement", "Alumni Networking"]
+		},
+		{
+			title: "STUDENT AMBASSADOR & PEER MENTOR",
+			period: "2023 - Present",
+			organization: "Hong Kong Baptist University",
+			description: "Serving as official university representative and peer mentor, guiding new students while representing the institution at official events.",
+			details: [
+				"Selected as Student Ambassador to represent university at official events and prospective student sessions",
+				"Worked as Peer Mentor, successfully guiding 20+ incoming students through academic and social transition",
+				"Provided comprehensive support including academic guidance, social integration, and personal development",
+				"Facilitated orientation programs and new student workshops to ensure smooth university transition",
+				"Maintained high satisfaction ratings from mentored students and university administration"
+			],
+			technologies: ["Leadership", "Public Speaking", "Mentorship", "Student Development", "Communication"]
+		},
+		{
+			title: "COMPUTER SCIENCE TUTORING EXCELLENCE",
+			period: "2023 - Present",
+			organization: "Hong Kong Baptist University",
+			description: "Providing specialized tutoring in computer science subjects, helping students achieve significant academic improvement through personalized instruction.",
+			details: [
+				"Provided Computer Science tutoring across programming languages and technical concepts",
+				"Achieved average 15% grade improvement for tutored students through personalized teaching methods",
+				"Developed customized learning materials and practice exercises for different learning styles",
+				"Conducted both individual and group tutoring sessions for maximum learning effectiveness",
+				"Received positive feedback from students and faculty for exceptional teaching and communication skills"
+			],
+			technologies: ["Python", "Java", "Programming Instruction", "Data Structures", "Algorithm Teaching", "Educational Technology"]
 		},
 		{
 			title: "COMPETITIVE GAMING ACHIEVEMENT",
