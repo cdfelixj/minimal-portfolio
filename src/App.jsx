@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import React, { useState } from 'react';
 import DetailedProjectsView from './components/DetailedProjectsView';
 import DetailedExperienceView from './components/DetailedExperienceView';
 import DetailedActivitiesView from './components/DetailedActivitiesView';
 import FloatingNav from './components/FloatingNav';
+import { experiences, projects, skills } from './data';
 import './styles/tailwind.css';
 
 function App() {
@@ -11,186 +11,40 @@ function App() {
 	const [showDetailedProjects, setShowDetailedProjects] = useState(false);
 	const [showDetailedExperience, setShowDetailedExperience] = useState(false);
 	const [showDetailedActivities, setShowDetailedActivities] = useState(false);
-	const { scrollYProgress } = useScroll();
-	const scaleX = useSpring(scrollYProgress, {
-		stiffness: 100,
-		damping: 30,
-		restDelta: 0.001
-	});
-
-	// Intersection Observer for scroll animations
-	useEffect(() => {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						entry.target.classList.add('animate-fadeInUp');
-					}
-				});
-			},
-			{ threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-		);
-
-		const elements = document.querySelectorAll('.scroll-animate');
-		elements.forEach((el) => observer.observe(el));
-
-		return () => observer.disconnect();
-	}, []);
-
-	const experiences = [
-	{
-		company: "CATHAY PACIFIC",
-		website: "https://www.cathaypacific.com/",
-		role: "Digital & IT Intern",
-		period: "Jul 2025 – Aug 2025",
-		description: "Delivered full-stack MVP with automated reconciliation, managed hackathon masterclasses for 600+ participants, and built enterprise documentation systems.",
-		details: [
-		"Developed a full-stack MVP (React/TypeScript, Flask) with validation, rate versioning, and rule engine",
-		"Automated reconciliation/reporting for ~40K shipments (~HKD 10M), improving accuracy and auditability",
-		"Coordinated hackathon masterclasses for 600+ participants across internal units and external partners",
-		"Built VBA-powered scheduling system optimizing on-call rostering and reducing conflicts"
-		],
-		technologies: ["React", "TypeScript", "Python", "Flask", "VBA"]
-	},
-	{
-		company: "WIZPRESSO",
-		website: "https://wizpresso.com/",
-		role: "Software Engineer Intern",
-		period: "Jun 2024 – Aug 2024",
-		description: "Replatformed key services reducing API latency by 22%, implemented secure OAuth 2.0/OIDC for 15k+ users, and led zero-downtime production migration.",
-		details: [
-		"Refactored APIs from SvelteKit/Prisma to ASP.NET Core, reducing latency by 22% for 1,500+ DAUs",
-		"Implemented OAuth 2.0/OIDC with JWT SSO for 15k+ users, passing security and compliance reviews",
-		"Led zero-downtime SQL Server → Amazon RDS migration with <0.05% variance"
-		],
-		technologies: ["ASP.NET Core", "OAuth 2.0", "OIDC", "Amazon RDS", "SvelteKit"]
-	},
-	{
-		company: "HONG KONG BAPTIST UNIVERSITY",
-		website: "https://www.hkbu.edu.hk/",
-		role: "Research Assistant",
-		period: "Jan 2024 – Aug 2024",
-		description: "Domain-adapted 7B LLM for financial sentiment analysis using PEFT-LoRA, achieving superior F1 scores vs BERT with 95% fewer parameters.",
-		details: [
-		"Adapted 7B LLM for financial sentiment & NER using PEFT–LoRA, trained on 20k+ transcripts",
-		"Achieved higher F1 scores vs. BERT with >95% fewer params and ~60–70% resource savings",
-		"Integrated optimized model into LangChain pipeline for scalable inference"
-		],
-		technologies: ["Python", "PEFT-LoRA", "QLoRA", "LangChain", "Transformers"]
-	},
-	];
-
-
-	const projects = [
-		{
-			title: "READ THE VISION",
-			impact: "Building computer vision solution to transcribe hand signals and improve communication between deaf/mute communities and the public",
-			description: "Admitted to the HKSTP Ideation Programme with up to HKD 100,000 funding potential. Initial HKD 10,000 secured.",
-			funding: "Secured HKD 10,000 initial funding with potential for up to HKD 100,000 from HKSTP Ideation Programme.",
-			links: ["GitHub", "Programme Details"]
-		},
-		{
-			title: "POWERLIFT E-COMMERCE", 
-			description: "Full-stack E-Commerce platform for powerlifting equipment using the MERN stack with integrated Stripe payment processing.",
-			technical: "Features admin dashboard with product management capabilities and secure payment processing.",
-			links: ["GitHub", "Live Site", "Admin Dashboard"]
-		},
-		{
-			title: "MEALMATCH",
-			description: "Web platform designed to connect food bank donors with beneficiaries in need, utilizing the Hungarian Algorithm for efficient matching.",
-			impact: "Real-time dashboard for monitoring food donations and distributions using Firestore.",
-			links: ["GitHub", "Case Study"]
-		},
-		{
-			title: "MOVIE SENTIMENT ANALYSIS",
-			description: "Deep Learning NLP project benchmarking RNN, LSTM, GRU, CNN, and attention-based models for sentiment classification.",
-			technical: "Achieved up to 81% test accuracy with Word2Vec embeddings for enhanced word representation.",
-			links: ["GitHub", "Results"]
-		}
-	];
-
-	const skills = {
-		"Programming Languages": ["Java", "Python", "C#", "JavaScript", "TypeScript", "SQL", "HTML", "CSS"],
-		"Frameworks & Libraries": ["React", "Svelte", "Next.js", "ASP.NET Core", "Spring Boot", "Express.js", "Flask", "Material UI", "Tailwind CSS", "Streamlit"],
-		"Databases & Cloud": ["MySQL", "MongoDB", "BigQuery", "Firebase", "AWS RDS", "AWS S3", "AWS DMS"],
-		"AI & Machine Learning": ["Pandas", "Matplotlib", "Seaborn", "LangChain", "LoRA", "PEFT", "PyTorch", "NLTK", "Gensim", "HuggingFace"],
-		"Tools & Platforms": ["AWS", "GCP", "Git", "GitHub", "Postman", "VS Code", "OAuth 2.0", "OIDC", "JWT", "REST APIs", "Stripe API"]
-	};
 
 	return (
-		<div className="bg-white text-gray-800 min-h-screen relative overflow-hidden">
-			{/* Subtle background elements */}
-			<div className="absolute inset-0 z-0">
-				<div className="absolute top-20 right-10 w-72 h-72 bg-blue-50 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
-				<div className="absolute top-40 left-10 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-pulse" style={{animationDelay: '2s'}}></div>
-			</div>
-
-			{/* Progress Bar */}
-			<motion.div
-				className="fixed top-0 left-0 right-0 h-1 bg-blue-900 z-50 origin-left"
-				style={{ scaleX }}
-			/>
-
+		<div className="bg-white text-gray-800 min-h-screen">
 			{/* Single Continuous Content Flow */}
-			<div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
 				
 				{/* Hero/About Section */}
 				<div id="hero" className="mb-32">
-					<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.8 }}
-					>
+					<div>
 						<div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12 mb-16">
 							<div className="flex-1 text-center lg:text-left">
-								<motion.h1 
-									className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-blue-900 mb-4 leading-tight"
-									initial={{ opacity: 0, x: -20 }}
-									animate={{ opacity: 1, x: 0 }}
-									transition={{ duration: 0.8, delay: 0.2 }}
-								>
+								<h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-blue-900 mb-4 leading-tight">
 									Felix Lau Pangestu
-								</motion.h1>
+								</h1>
 								
-								<motion.div
-									initial={{ opacity: 0, x: -20 }}
-									animate={{ opacity: 1, x: 0 }}
-									transition={{ duration: 0.8, delay: 0.4 }}
-									className="text-xl sm:text-2xl text-gray-600 mb-2"
-								>
+								<div className="text-xl sm:text-2xl text-gray-600 mb-2">
 									Software Engineer
-								</motion.div>
+								</div>
 								
-								<motion.div
-									initial={{ opacity: 0, x: -20 }}
-									animate={{ opacity: 1, x: 0 }}
-									transition={{ duration: 0.8, delay: 0.5 }}
-									className="text-base sm:text-lg text-blue-900 mb-8"
-								>
+								<div className="text-base sm:text-lg text-blue-900 mb-8">
 									Taikoo, Hong Kong • +852 94381766
-								</motion.div>
+								</div>
 							</div>
 							
-							<motion.div
-								initial={{ opacity: 0, scale: 0.8 }}
-								animate={{ opacity: 1, scale: 1 }}
-								transition={{ duration: 0.8, delay: 0.6 }}
-								className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-lg overflow-hidden border-4 border-blue-900 flex-shrink-0"
-							>
+							<div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-lg overflow-hidden border-4 border-blue-900 flex-shrink-0">
 								<img 
 									src="/assets/cardPhotos/fish.jpg" 
 									alt="Felix Lau Pangestu"
 									className="w-full h-full object-cover"
 								/>
-							</motion.div>
+							</div>
 						</div>
 
-						<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.8, delay: 0.8 }}
-						className="space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed"
-						>
+						<div className="space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed">
 						<p>
 							Hi, I’m Felix — a final-year Business Computing & Data Analytics student at Hong Kong Baptist University. Alongside my studies, I’ve enjoyed being involved
 							as a Student Ambassador, Peer Mentor, and Computer Science Tutor, where I get to both represent my university
@@ -223,72 +77,55 @@ function App() {
 							or just drop me a message at{' '}
 							<a href="mailto:cd.felixj@gmail.com" className="text-blue-900 hover:underline font-medium">cd.felixj@gmail.com</a>.
 						</p>
-						</motion.div>
+						</div>
 
-
-						<motion.div
-							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.8, delay: 1.0 }}
-							className="mt-8 sm:mt-12 text-center"
-						>
+						<div className="mt-8 sm:mt-12 text-center">
 							<button 
 								onClick={() => document.getElementById('skills').scrollIntoView({ behavior: 'smooth' })}
 								className="text-blue-900 hover:text-blue-700 font-medium text-base sm:text-lg transition-colors duration-300"
 							>
 								Explore My Technical Skills ↓
 							</button>
-						</motion.div>
-					</motion.div>
+						</div>
+					</div>
 				</div>
 
 				{/* Technical Skills Section */}
 				<div id="skills" className="mb-24 sm:mb-32">
-					<h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-4">Technical Expertise</h2>
-					<p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-12">Technologies I work with to bring ideas to life</p>
+					<h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-4">What I Work With</h2>
+					<p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-12">The tools and technologies I use to build stuff</p>
 					
 					<div className="space-y-6 sm:space-y-8">
 						{Object.entries(skills).map(([category, items], index) => (
-							<motion.div
-								key={category}
-								initial={{ opacity: 0, y: 20 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.6, delay: index * 0.1 }}
-								viewport={{ once: true }}
-							>
+							<div key={category}>
 								<h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-3 sm:mb-4">{category}:</h3>
 								<div className="flex flex-wrap gap-1 sm:gap-2">
 									{items.map((skill, skillIndex) => (
-										<motion.span
+										<span
 											key={skill}
 											className="text-sm sm:text-base text-gray-700 hover:text-blue-900 hover:font-medium transition-all duration-300 cursor-default"
-											whileHover={{ scale: 1.05 }}
 										>
 											{skill}{skillIndex < items.length - 1 ? ' • ' : ''}
-										</motion.span>
+										</span>
 									))}
 								</div>
-							</motion.div>
+							</div>
 						))}
 					</div>
 				</div>
 
 				{/* Professional Experience Section */}
 				<div id="experience" className="mb-24 sm:mb-32">
-					<h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-4">Professional Journey</h2>
-					<p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-12">My career progression in technology and innovation</p>
+					<h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-4">Where I've Worked</h2>
+					<p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-12">The places that taught me things and put up with my questions</p>
 					
 					<div className="relative">
 						<div className="absolute left-2 sm:left-4 top-0 bottom-0 w-0.5 bg-blue-900"></div>
 						
 						<div className="space-y-8 sm:space-y-12">
 							{experiences.map((exp, index) => (
-								<motion.div
+								<div
 									key={index}
-									initial={{ opacity: 0, x: -20 }}
-									whileInView={{ opacity: 1, x: 0 }}
-									transition={{ duration: 0.6, delay: index * 0.1 }}
-									viewport={{ once: true }}
 									className="relative pl-8 sm:pl-12"
 								>
 									<div className="absolute left-0 sm:left-0 w-6 h-6 sm:w-8 sm:h-8 bg-blue-900 rounded-full flex items-center justify-center">
@@ -298,34 +135,14 @@ function App() {
 									<div className="space-y-3 sm:space-y-4">
 										<div>
 											<div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
-												<h3 className="text-xl sm:text-2xl font-bold text-blue-900">{exp.company}</h3>
-												<motion.a
+												<a 
 													href={exp.website}
 													target="_blank"
 													rel="noopener noreferrer"
-													className="inline-flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 bg-blue-100 hover:bg-blue-200 text-blue-900 rounded-full transition-colors duration-300 self-start"
-													whileHover={{ 
-														scale: 1.05,
-														transition: { duration: 0.2, ease: "easeOut" }
-													}}
-													whileTap={{ scale: 0.95 }}
-													title="Visit company website"
+													className="text-xl sm:text-2xl font-bold text-blue-900 hover:underline"
 												>
-													<svg 
-														className="w-3 h-3 sm:w-4 sm:h-4" 
-														fill="none" 
-														stroke="currentColor" 
-														viewBox="0 0 24 24" 
-														xmlns="http://www.w3.org/2000/svg"
-													>
-														<path 
-															strokeLinecap="round" 
-															strokeLinejoin="round" 
-															strokeWidth={2} 
-															d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
-														/>
-													</svg>
-												</motion.a>
+													{exp.company}
+												</a>
 											</div>
 											<h4 className="text-lg sm:text-xl font-semibold text-gray-800">{exp.role}</h4>
 											<p className="text-sm sm:text-base text-gray-600">{exp.period}</p>
@@ -333,21 +150,15 @@ function App() {
 										
 										<p className="text-base sm:text-lg leading-relaxed">{exp.description}</p>
 										
-										<motion.button
+										<button
 											onClick={() => setExpandedExperience(expandedExperience === index ? null : index)}
 											className="text-blue-900 hover:text-blue-700 font-medium transition-colors duration-300 text-sm sm:text-base"
-											whileHover={{ scale: 1.02 }}
 										>
 											{expandedExperience === index ? 'Show less ↑' : 'View details ↓'}
-										</motion.button>
+										</button>
 										
 										{expandedExperience === index && (
-											<motion.div
-												initial={{ opacity: 0, height: 0 }}
-												animate={{ opacity: 1, height: 'auto' }}
-												transition={{ duration: 0.3 }}
-												className="space-y-3 sm:space-y-4"
-											>
+											<div className="space-y-3 sm:space-y-4">
 												<ul className="list-disc list-inside space-y-2 text-sm sm:text-base text-gray-700 ml-2">
 													{exp.details.map((detail, detailIndex) => (
 														<li key={detailIndex}>{detail}</li>
@@ -363,44 +174,34 @@ function App() {
 														</span>
 													))}
 												</div>
-											</motion.div>
+											</div>
 										)}
 									</div>
-								</motion.div>
+								</div>
 							))}
 						</div>
 					</div>
 					
 					{/* View All Experience Button */}
 					<div className="text-center mt-12">
-						<motion.button
+						<button
 							onClick={() => setShowDetailedExperience(true)}
-							className="inline-flex items-center px-8 py-4 bg-blue-900 text-white rounded-lg font-semibold text-lg hover:bg-blue-800 transition-colors duration-300"
-							whileHover={{ scale: 1.02 }}
-							whileTap={{ scale: 0.98 }}
+							className="px-8 py-4 bg-blue-900 text-white rounded-lg font-semibold text-lg hover:bg-blue-800 transition-colors duration-300"
 						>
-							<svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-							</svg>
 							View the Full & Detailed Journey
-						</motion.button>
+						</button>
 					</div>
 				</div>
 
 				{/* Featured Projects Section */}
 				<div id="projects" className="mb-24 sm:mb-32">
-					<h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-4">Featured Projects</h2>
-					<p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-12">Innovative solutions that make a meaningful impact</p>
+					<h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-4">Things I've Built</h2>
+					<p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-12">Projects I'm actually proud of (and some that taught me valuable lessons)</p>
 					
 					<div className="space-y-12 sm:space-y-20">
 						{projects.map((project, index) => (
-							<motion.div
+							<div
 								key={index}
-								initial={{ opacity: 0, y: 30 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ duration: 0.8, delay: index * 0.2 }}
-								viewport={{ once: true }}
 								className="space-y-4 sm:space-y-6"
 							>
 								<h3 className="text-2xl sm:text-3xl font-bold text-blue-900">{project.title}</h3>
@@ -430,43 +231,32 @@ function App() {
 										</a>
 									))}
 								</div>
-							</motion.div>
+							</div>
 						))}
 					</div>
 					
 					{/* View All Projects Button */}
 					<div className="text-center mt-8 sm:mt-12">
-						<motion.button
+						<button
 							onClick={() => setShowDetailedProjects(true)}
-							className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-blue-900 text-white rounded-lg font-semibold text-base sm:text-lg hover:bg-blue-800 transition-colors duration-300"
-							whileHover={{ scale: 1.02 }}
-							whileTap={{ scale: 0.98 }}
+							className="px-6 py-3 sm:px-8 sm:py-4 bg-blue-900 text-white rounded-lg font-semibold text-base sm:text-lg hover:bg-blue-800 transition-colors duration-300"
 						>
-							<svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-							</svg>
 							View All Projects
-						</motion.button>
+						</button>
 					</div>
 				</div>
 
 				{/* Activities & Achievements Section */}
 				<div id="activities" className="mb-24 sm:mb-32">
-					<h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-4">Activities & Achievements</h2>
-					<p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-12">Leadership roles, awards, hackathons, and community contributions that shaped my journey</p>
+					<h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-4">Other Stuff I Do</h2>
+					<p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-12">Competitions, roles, and random achievements that somehow ended up on my resume</p>
 					
 					<div className="space-y-12 sm:space-y-16">
-						<motion.div
-							initial={{ opacity: 0, y: 30 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.8 }}
-							viewport={{ once: true }}
-							className="space-y-4 sm:space-y-6"
-						>
-							<h3 className="text-2xl sm:text-3xl font-bold text-blue-900">International Hackathon Participation</h3>
-							<p className="text-lg sm:text-xl font-medium text-gray-800">2022 - Present | Global Tech Communities</p>
+						<div className="space-y-4 sm:space-y-6">
+							<h3 className="text-2xl sm:text-3xl font-bold text-blue-900">Hackathon Adventures</h3>
+							<p className="text-lg sm:text-xl font-medium text-gray-800">2022 - Present | Around the World</p>
 							<p className="text-base sm:text-lg leading-relaxed">
-								Active participant in international hackathons across multiple countries, focusing on blockchain, AI/ML, and innovative technology solutions. Gained international exposure to diverse tech communities through rapid prototyping and cross-cultural collaboration.
+								I've become a bit of a hackathon addict - there's something addictive about building something from nothing in 24-48 hours. Started locally in Hong Kong and somehow ended up flying to different countries for these events. Made some great friends and learned that energy drinks really do have limits.
 							</p>
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
 								<div className="bg-blue-50 p-4 rounded-lg">
@@ -486,86 +276,57 @@ function App() {
 									<p className="text-sm text-gray-600">Waterloo, Canada • General Technology</p>
 								</div>
 							</div>
-							<div className="flex flex-wrap gap-3">
-								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">International Exposure</span>
-								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Blockchain/Web3</span>
-								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">AI/ML</span>
-								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Cross-cultural Collaboration</span>
-							</div>
-						</motion.div>
+						</div>
 
-						<motion.div
-							initial={{ opacity: 0, y: 30 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.8, delay: 0.2 }}
-							viewport={{ once: true }}
-							className="space-y-6"
-						>
+						<div className="space-y-6">
 							<h3 className="text-3xl font-bold text-blue-900">AWS Student Ambassador</h3>
 							<p className="text-xl font-medium text-gray-800">Jan 2025 - Present | Amazon Web Services</p>
 							<p className="text-lg leading-relaxed">
-								Liaison between AWS and the student community, organizing events and promoting AWS resources to increase engagement. Supported the successful execution of AWS Summit 2025 by assisting with event logistics and partner coordination.
+								Got selected to represent AWS at my university, which still feels surreal. I help organize events and try to get more students interested in cloud tech. Also got to help out at AWS Summit 2025, which was both overwhelming and amazing - so many smart people in one place!
 							</p>
-							<div className="flex flex-wrap gap-3">
-								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Leadership</span>
-								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Cloud Technology</span>
-								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Event Management</span>
-							</div>
-						</motion.div>
+						</div>
 
-						<motion.div
-							initial={{ opacity: 0, y: 30 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.8, delay: 0.4 }}
-							viewport={{ once: true }}
-							className="space-y-6"
-						>
+						<div className="space-y-6">
 							<h3 className="text-3xl font-bold text-blue-900">HK Techathon+ 2025</h3>
-							<p className="text-xl font-medium text-gray-800">2025 | Hong Kong Technology Competition</p>
+							<p className="text-xl font-medium text-gray-800">2025 | Hong Kong's Big Tech Competition</p>
 							<p className="text-lg leading-relaxed">
-								Achieved 3rd Runner-up and Merit Award in Hong Kong's premier technology competition, developing innovative solutions alongside talented teams from across the region.
+								Managed to snag 3rd Runner-up and a Merit Award in one of Hong Kong's biggest tech competitions. The competition was intense - lots of really talented teams. Our solution was pretty solid, though I definitely learned that pitching is just as important as the tech itself.
 							</p>
-							<div className="flex flex-wrap gap-3">
-								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">3rd Runner-up</span>
-								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Merit Award</span>
-								<span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">Innovation</span>
-							</div>
-						</motion.div>
+						</div>
 					</div>
 
 					<div className="text-center mt-12">
-						<motion.button
+						<button
 							onClick={() => setShowDetailedActivities(true)}
 							className="inline-flex items-center px-8 py-4 bg-blue-900 text-white rounded-lg font-semibold text-lg hover:bg-blue-800 transition-colors duration-300"
-							whileHover={{ scale: 1.02 }}
-							whileTap={{ scale: 0.98 }}
 						>
 							<svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
 							</svg>
 							View All Activities & Achievements
-						</motion.button>
+						</button>
 					</div>
 				</div>
 
 				{/* Contact Section */}
 				<div id="contact">
-					<h2 className="text-4xl font-bold text-blue-900 mb-8">Let's Connect</h2>
+					<h2 className="text-4xl font-bold text-blue-900 mb-8">Let's Chat!</h2>
 					
 					<div className="space-y-6 text-lg leading-relaxed">
 						<p>
-							I'm always excited to collaborate on innovative projects and explore new opportunities in technology and social impact. Whether you're interested in discussing full-stack development, machine learning applications, or startup ventures, I'd love to hear from you.
+							I'm always down to chat about cool projects, weird tech ideas, or just generally nerding out about code. Whether you want to discuss a potential collaboration, need help with something, or just want to argue about which programming language is superior, hit me up!
 						</p>
 						
 						<p>
-							Feel free to reach out at{' '}
+							Easiest way to reach me is at{' '}
 							<a href="mailto:cd.felixj@gmail.com" className="text-blue-900 hover:underline font-medium">cd.felixj@gmail.com</a>{' '}
-							or call me at{' '}
+							or if it's urgent, call me at{' '}
 							<a href="tel:+85294381766" className="text-blue-900 hover:underline font-medium">+852 94381766</a>.
-							I'm based in Taikoo, Hong Kong and always open to discussing new opportunities. You can also find me on{' '}
+							I'm based in Taikoo, Hong Kong and usually respond pretty quickly (unless I'm in the gym or lost in code). You can also stalk my projects on{' '}
 							<a href="https://github.com/cdfelixj" className="text-blue-900 hover:underline font-medium">GitHub</a>,{' '}
-							<a href="https://linkedin.com/in/jfelixpangestu/" className="text-blue-900 hover:underline font-medium">LinkedIn</a>, and explore more of my work in my{' '}
-							<a href="#" className="text-blue-900 hover:underline font-medium">complete portfolio</a>.
+							connect on{' '}
+							<a href="https://linkedin.com/in/jfelixpangestu/" className="text-blue-900 hover:underline font-medium">LinkedIn</a>, or browse more of my work on my{' '}
+							<a href="#" className="text-blue-900 hover:underline font-medium">full portfolio</a>.
 						</p>
 					</div>
 					
