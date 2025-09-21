@@ -132,7 +132,7 @@ function App() {
 			/>
 
 			{/* Single Continuous Content Flow */}
-			<div className="relative z-10 max-w-4xl mx-auto px-6 py-16">
+			<div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
 				
 				{/* Hero/About Section */}
 				<div id="hero" className="mb-32">
@@ -141,10 +141,10 @@ function App() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8 }}
 					>
-						<div className="flex flex-col lg:flex-row items-start gap-12 mb-16">
-							<div className="flex-1">
+						<div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12 mb-16">
+							<div className="flex-1 text-center lg:text-left">
 								<motion.h1 
-									className="text-6xl lg:text-7xl font-bold text-blue-900 mb-4 leading-tight"
+									className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-blue-900 mb-4 leading-tight"
 									initial={{ opacity: 0, x: -20 }}
 									animate={{ opacity: 1, x: 0 }}
 									transition={{ duration: 0.8, delay: 0.2 }}
@@ -156,7 +156,7 @@ function App() {
 									initial={{ opacity: 0, x: -20 }}
 									animate={{ opacity: 1, x: 0 }}
 									transition={{ duration: 0.8, delay: 0.4 }}
-									className="text-2xl text-gray-600 mb-2"
+									className="text-xl sm:text-2xl text-gray-600 mb-2"
 								>
 									Software Engineer
 								</motion.div>
@@ -165,7 +165,7 @@ function App() {
 									initial={{ opacity: 0, x: -20 }}
 									animate={{ opacity: 1, x: 0 }}
 									transition={{ duration: 0.8, delay: 0.5 }}
-									className="text-lg text-blue-900 mb-8"
+									className="text-base sm:text-lg text-blue-900 mb-8"
 								>
 									Taikoo, Hong Kong • +852 94381766
 								</motion.div>
@@ -175,7 +175,7 @@ function App() {
 								initial={{ opacity: 0, scale: 0.8 }}
 								animate={{ opacity: 1, scale: 1 }}
 								transition={{ duration: 0.8, delay: 0.6 }}
-								className="w-64 h-64 rounded-lg overflow-hidden border-4 border-blue-900 flex-shrink-0"
+								className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-lg overflow-hidden border-4 border-blue-900 flex-shrink-0"
 							>
 								<img 
 									src="/assets/cardPhotos/fish.jpg" 
@@ -189,7 +189,7 @@ function App() {
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8, delay: 0.8 }}
-						className="space-y-6 text-lg leading-relaxed"
+						className="space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed"
 						>
 						<p>
 							Hi, I’m Felix — a final-year Business Computing & Data Analytics student at Hong Kong Baptist University. Alongside my studies, I’ve enjoyed being involved
@@ -230,11 +230,11 @@ function App() {
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.8, delay: 1.0 }}
-							className="mt-12 text-center"
+							className="mt-8 sm:mt-12 text-center"
 						>
 							<button 
 								onClick={() => document.getElementById('skills').scrollIntoView({ behavior: 'smooth' })}
-								className="text-blue-900 hover:text-blue-700 font-medium text-lg transition-colors duration-300"
+								className="text-blue-900 hover:text-blue-700 font-medium text-base sm:text-lg transition-colors duration-300"
 							>
 								Explore My Technical Skills ↓
 							</button>
@@ -243,11 +243,11 @@ function App() {
 				</div>
 
 				{/* Technical Skills Section */}
-				<div id="skills" className="mb-32">
-					<h2 className="text-4xl font-bold text-blue-900 mb-4">Technical Expertise</h2>
-					<p className="text-xl text-gray-600 mb-12">Technologies I work with to bring ideas to life</p>
+				<div id="skills" className="mb-24 sm:mb-32">
+					<h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-4">Technical Expertise</h2>
+					<p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-12">Technologies I work with to bring ideas to life</p>
 					
-					<div className="space-y-8">
+					<div className="space-y-6 sm:space-y-8">
 						{Object.entries(skills).map(([category, items], index) => (
 							<motion.div
 								key={category}
@@ -256,12 +256,12 @@ function App() {
 								transition={{ duration: 0.6, delay: index * 0.1 }}
 								viewport={{ once: true }}
 							>
-								<h3 className="text-xl font-semibold text-gray-800 mb-4">{category}:</h3>
-								<div className="flex flex-wrap gap-2">
+								<h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-3 sm:mb-4">{category}:</h3>
+								<div className="flex flex-wrap gap-1 sm:gap-2">
 									{items.map((skill, skillIndex) => (
 										<motion.span
 											key={skill}
-											className="text-gray-700 hover:text-blue-900 hover:font-medium transition-all duration-300 cursor-default"
+											className="text-sm sm:text-base text-gray-700 hover:text-blue-900 hover:font-medium transition-all duration-300 cursor-default"
 											whileHover={{ scale: 1.05 }}
 										>
 											{skill}{skillIndex < items.length - 1 ? ' • ' : ''}
@@ -274,14 +274,14 @@ function App() {
 				</div>
 
 				{/* Professional Experience Section */}
-				<div id="experience" className="mb-32">
-					<h2 className="text-4xl font-bold text-blue-900 mb-4">Professional Journey</h2>
-					<p className="text-xl text-gray-600 mb-12">My career progression in technology and innovation</p>
+				<div id="experience" className="mb-24 sm:mb-32">
+					<h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-4">Professional Journey</h2>
+					<p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-12">My career progression in technology and innovation</p>
 					
 					<div className="relative">
-						<div className="absolute left-4 top-0 bottom-0 w-0.5 bg-blue-900"></div>
+						<div className="absolute left-2 sm:left-4 top-0 bottom-0 w-0.5 bg-blue-900"></div>
 						
-						<div className="space-y-12">
+						<div className="space-y-8 sm:space-y-12">
 							{experiences.map((exp, index) => (
 								<motion.div
 									key={index}
@@ -289,21 +289,21 @@ function App() {
 									whileInView={{ opacity: 1, x: 0 }}
 									transition={{ duration: 0.6, delay: index * 0.1 }}
 									viewport={{ once: true }}
-									className="relative pl-12"
+									className="relative pl-8 sm:pl-12"
 								>
-									<div className="absolute left-0 w-8 h-8 bg-blue-900 rounded-full flex items-center justify-center">
-										<div className="w-3 h-3 bg-white rounded-full"></div>
+									<div className="absolute left-0 sm:left-0 w-6 h-6 sm:w-8 sm:h-8 bg-blue-900 rounded-full flex items-center justify-center">
+										<div className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-full"></div>
 									</div>
 									
-									<div className="space-y-4">
+									<div className="space-y-3 sm:space-y-4">
 										<div>
-											<div className="flex items-center gap-3 mb-2">
-												<h3 className="text-2xl font-bold text-blue-900">{exp.company}</h3>
+											<div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
+												<h3 className="text-xl sm:text-2xl font-bold text-blue-900">{exp.company}</h3>
 												<motion.a
 													href={exp.website}
 													target="_blank"
 													rel="noopener noreferrer"
-													className="inline-flex items-center justify-center w-8 h-8 bg-blue-100 hover:bg-blue-200 text-blue-900 rounded-full transition-colors duration-300"
+													className="inline-flex items-center justify-center w-6 h-6 sm:w-8 sm:h-8 bg-blue-100 hover:bg-blue-200 text-blue-900 rounded-full transition-colors duration-300 self-start"
 													whileHover={{ 
 														scale: 1.05,
 														transition: { duration: 0.2, ease: "easeOut" }
@@ -312,7 +312,7 @@ function App() {
 													title="Visit company website"
 												>
 													<svg 
-														className="w-4 h-4" 
+														className="w-3 h-3 sm:w-4 sm:h-4" 
 														fill="none" 
 														stroke="currentColor" 
 														viewBox="0 0 24 24" 
@@ -327,15 +327,15 @@ function App() {
 													</svg>
 												</motion.a>
 											</div>
-											<h4 className="text-xl font-semibold text-gray-800">{exp.role}</h4>
-											<p className="text-gray-600">{exp.period}</p>
+											<h4 className="text-lg sm:text-xl font-semibold text-gray-800">{exp.role}</h4>
+											<p className="text-sm sm:text-base text-gray-600">{exp.period}</p>
 										</div>
 										
-										<p className="text-lg">{exp.description}</p>
+										<p className="text-base sm:text-lg leading-relaxed">{exp.description}</p>
 										
 										<motion.button
 											onClick={() => setExpandedExperience(expandedExperience === index ? null : index)}
-											className="text-blue-900 hover:text-blue-700 font-medium transition-colors duration-300"
+											className="text-blue-900 hover:text-blue-700 font-medium transition-colors duration-300 text-sm sm:text-base"
 											whileHover={{ scale: 1.02 }}
 										>
 											{expandedExperience === index ? 'Show less ↑' : 'View details ↓'}
@@ -346,18 +346,18 @@ function App() {
 												initial={{ opacity: 0, height: 0 }}
 												animate={{ opacity: 1, height: 'auto' }}
 												transition={{ duration: 0.3 }}
-												className="space-y-4"
+												className="space-y-3 sm:space-y-4"
 											>
-												<ul className="list-disc list-inside space-y-2 text-gray-700">
+												<ul className="list-disc list-inside space-y-2 text-sm sm:text-base text-gray-700 ml-2">
 													{exp.details.map((detail, detailIndex) => (
 														<li key={detailIndex}>{detail}</li>
 													))}
 												</ul>
-												<div className="flex flex-wrap gap-2">
+												<div className="flex flex-wrap gap-1 sm:gap-2">
 													{exp.technologies.map((tech, techIndex) => (
 														<span
 															key={techIndex}
-															className="px-3 py-1 bg-blue-100 text-blue-900 rounded-full text-sm font-medium"
+															className="px-2 py-1 sm:px-3 sm:py-1 bg-blue-100 text-blue-900 rounded-full text-xs sm:text-sm font-medium"
 														>
 															{tech}
 														</span>
@@ -389,11 +389,11 @@ function App() {
 				</div>
 
 				{/* Featured Projects Section */}
-				<div id="projects" className="mb-32">
-					<h2 className="text-4xl font-bold text-blue-900 mb-4">Featured Projects</h2>
-					<p className="text-xl text-gray-600 mb-12">Innovative solutions that make a meaningful impact</p>
+				<div id="projects" className="mb-24 sm:mb-32">
+					<h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-4">Featured Projects</h2>
+					<p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-12">Innovative solutions that make a meaningful impact</p>
 					
-					<div className="space-y-20">
+					<div className="space-y-12 sm:space-y-20">
 						{projects.map((project, index) => (
 							<motion.div
 								key={index}
@@ -401,30 +401,30 @@ function App() {
 								whileInView={{ opacity: 1, y: 0 }}
 								transition={{ duration: 0.8, delay: index * 0.2 }}
 								viewport={{ once: true }}
-								className="space-y-6"
+								className="space-y-4 sm:space-y-6"
 							>
-								<h3 className="text-3xl font-bold text-blue-900">{project.title}</h3>
+								<h3 className="text-2xl sm:text-3xl font-bold text-blue-900">{project.title}</h3>
 								
 								{project.impact && (
-									<p className="text-xl font-medium text-gray-800">{project.impact}</p>
+									<p className="text-lg sm:text-xl font-medium text-gray-800">{project.impact}</p>
 								)}
 								
-								<p className="text-lg leading-relaxed">{project.description}</p>
+								<p className="text-base sm:text-lg leading-relaxed">{project.description}</p>
 								
 								{project.technical && (
-									<p className="text-lg leading-relaxed">{project.technical}</p>
+									<p className="text-base sm:text-lg leading-relaxed">{project.technical}</p>
 								)}
 								
 								{project.funding && (
-									<p className="text-lg leading-relaxed font-medium text-blue-900">{project.funding}</p>
+									<p className="text-base sm:text-lg leading-relaxed font-medium text-blue-900">{project.funding}</p>
 								)}
 								
-								<div className="flex gap-4">
+								<div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
 									{project.links.map((link, linkIndex) => (
 										<a
 											key={linkIndex}
 											href="#"
-											className="text-blue-900 hover:text-blue-700 font-medium hover:underline transition-colors duration-300"
+											className="text-blue-900 hover:text-blue-700 font-medium hover:underline transition-colors duration-300 text-sm sm:text-base"
 										>
 											{link}
 										</a>
@@ -435,14 +435,14 @@ function App() {
 					</div>
 					
 					{/* View All Projects Button */}
-					<div className="text-center mt-12">
+					<div className="text-center mt-8 sm:mt-12">
 						<motion.button
 							onClick={() => setShowDetailedProjects(true)}
-							className="inline-flex items-center px-8 py-4 bg-blue-900 text-white rounded-lg font-semibold text-lg hover:bg-blue-800 transition-colors duration-300"
+							className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-blue-900 text-white rounded-lg font-semibold text-base sm:text-lg hover:bg-blue-800 transition-colors duration-300"
 							whileHover={{ scale: 1.02 }}
 							whileTap={{ scale: 0.98 }}
 						>
-							<svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
 							</svg>
 							View All Projects
@@ -451,21 +451,21 @@ function App() {
 				</div>
 
 				{/* Activities & Achievements Section */}
-				<div id="activities" className="mb-32">
-					<h2 className="text-4xl font-bold text-blue-900 mb-4">Activities & Achievements</h2>
-					<p className="text-xl text-gray-600 mb-12">Leadership roles, awards, hackathons, and community contributions that shaped my journey</p>
+				<div id="activities" className="mb-24 sm:mb-32">
+					<h2 className="text-3xl sm:text-4xl font-bold text-blue-900 mb-4">Activities & Achievements</h2>
+					<p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-12">Leadership roles, awards, hackathons, and community contributions that shaped my journey</p>
 					
-					<div className="space-y-16">
+					<div className="space-y-12 sm:space-y-16">
 						<motion.div
 							initial={{ opacity: 0, y: 30 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.8 }}
 							viewport={{ once: true }}
-							className="space-y-6"
+							className="space-y-4 sm:space-y-6"
 						>
-							<h3 className="text-3xl font-bold text-blue-900">International Hackathon Participation</h3>
-							<p className="text-xl font-medium text-gray-800">2022 - Present | Global Tech Communities</p>
-							<p className="text-lg leading-relaxed">
+							<h3 className="text-2xl sm:text-3xl font-bold text-blue-900">International Hackathon Participation</h3>
+							<p className="text-lg sm:text-xl font-medium text-gray-800">2022 - Present | Global Tech Communities</p>
+							<p className="text-base sm:text-lg leading-relaxed">
 								Active participant in international hackathons across multiple countries, focusing on blockchain, AI/ML, and innovative technology solutions. Gained international exposure to diverse tech communities through rapid prototyping and cross-cultural collaboration.
 							</p>
 							<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
