@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DetailedProjectsView from './components/DetailedProjectsView';
 import DetailedExperienceView from './components/DetailedExperienceView';
 import DetailedActivitiesView from './components/DetailedActivitiesView';
+import ScrollingLine from './components/ScrollingLine';
 import { skills, experiences, projects } from './data';
 import './styles/tailwind.css';
 
@@ -11,6 +12,9 @@ function App() {
 	const [showDetailedActivities, setShowDetailedActivities] = useState(false);
 	return (
 		<div className="bg-white text-gray-900">
+			{/* Scrolling SVG Line */}
+			<ScrollingLine />
+			
 			{/* Hero Section */}
 			<section className="min-h-screen flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 snap-start">
 				<div className="max-w-3xl mx-auto space-y-8">
