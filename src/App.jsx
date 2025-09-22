@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DetailedProjectsView from './components/DetailedProjectsView';
 import DetailedExperienceView from './components/DetailedExperienceView';
 import DetailedActivitiesView from './components/DetailedActivitiesView';
-import { skills, experiences, projects, detailedActivities } from './data';
+import { skills, experiences, projects } from './data';
 import './styles/tailwind.css';
 
 function App() {
@@ -35,7 +35,7 @@ function App() {
 					<p className="text-lg sm:text-xl text-gray-600">
 						Previously at{' '}
 						<a href="https://www.ntu.edu.sg/" className="text-gray-900 hover:underline">Nanyang Technological University</a>{' '}
-						in Singapore.
+						 for exchange in Singapore.
 					</p>
 					
 					{/* Navigation links */}
@@ -53,7 +53,7 @@ function App() {
 				
 				{/* Scroll indicator - text hint */}
 				<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-					<p className="text-gray-400 text-sm uppercase tracking-widest animate-pulse">Scroll to explore</p>
+					<p className="text-gray-400 text-sm uppercase tracking-widest animate-pulse">Scroll</p>
 				</div>
 			</section>
 

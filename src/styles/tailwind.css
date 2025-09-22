@@ -19,34 +19,6 @@ section {
   scroll-snap-stop: always;
 }
 
-/* Custom animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fadeInUp {
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-/* Initially hide elements that will be animated */
-.scroll-animate {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.scroll-animate.animate-fadeInUp {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* Custom scrollbar styling */
 ::-webkit-scrollbar {
     width: 6px;
@@ -88,11 +60,6 @@ a, button {
   transition: all 0.3s ease;
 }
 
-/* Custom utility classes */
-.text-balance {
-  text-wrap: balance;
-}
-
 /* Responsive font sizes */
 @media (max-width: 640px) {
   .text-6xl {
@@ -104,36 +71,4 @@ a, button {
     font-size: 3.5rem;
     line-height: 1.1;
   }
-
-  /* Mobile-specific adjustments */
-  .lg\:flex-row {
-    flex-direction: column;
-  }
-  
-  .w-64.h-64 {
-    width: 12rem;
-    height: 12rem;
-    margin: 0 auto;
-  }
 }
-
-/* Mobile navigation adjustments */
-@media (max-width: 768px) {
-  .fixed.bottom-6 nav div {
-    padding: 0.5rem 1rem;
-  }
-  
-  .fixed.bottom-6 nav button {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.75rem;
-  }
-}
-
-/* Hover effects for desktop only */
-@media (hover: hover) {
-  .hover\:scale-105:hover {
-    transform: scale(1.05);
-  }
-}
-
-html{scroll-behavior:smooth}
