@@ -14,7 +14,7 @@ export const projects = [
 	},
 	{
 		title: "MEALMATCH",
-		description: "Created this during a hackathon after learning about food waste in Hong Kong. Connects food banks with people who need help using the Hungarian Algorithm for optimal matching.",
+		description: "Created this during a hackathon after learning about food waste in Singapore. Connects food banks with people who need help using the Hungarian Algorithm for optimal matching.",
 		impact: "Built a real-time dashboard to track donations and distributions using Firestore. Seeing the numbers update live was actually pretty satisfying.",
 		links: ["GitHub", "Case Study"]
 	},
