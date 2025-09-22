@@ -1,19 +1,14 @@
 import React, { useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import {
   Dialog,
-  DialogContent,
   Typography,
   IconButton,
   Container,
-  Card,
-  CardContent,
   Button,
   Box,
   Divider,
   Chip,
-  Collapse,
-  Avatar
+  Collapse
 } from '@mui/material';
 import {
   Timeline,
@@ -44,11 +39,6 @@ const DetailedExperienceView = React.memo(({ open, onClose }) => {
       maxWidth={false}
       fullScreen
       PaperProps={{
-        component: motion.div,
-        initial: { opacity: 0 },
-        animate: { opacity: 1 },
-        exit: { opacity: 0 },
-        transition: { duration: 0.4, ease: "easeInOut" },
         sx: {
           backgroundColor: 'background.default',
           overflow: 'hidden'
@@ -89,9 +79,6 @@ const DetailedExperienceView = React.memo(({ open, onClose }) => {
                 onClick={onClose}
                 color="primary"
                 size="large"
-                component={motion.button}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
                 sx={{
                   '&:hover': {
                     backgroundColor: 'primary.light',
@@ -107,139 +94,144 @@ const DetailedExperienceView = React.memo(({ open, onClose }) => {
 
         {/* Experience Content */}
         <Container maxWidth="lg" sx={{ py: 4 }}>
-          <Timeline position="right" sx={{ px: 0 }}>
+          <Timeline position="alternate" sx={{ px: 0 }}>
             {detailedExperiences.map((exp, index) => (
-              <TimelineItem
-                key={index}
-                component={motion.div}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.4,
-                  delay: index * 0.08,
-                  ease: "easeOut"
-                }}
-              >
+              <TimelineItem key={index}>
                 <TimelineSeparator>
-                  <TimelineDot
-                    color="primary"
-                    variant="outlined"
-                    sx={{
-                      borderWidth: 3,
-                      p: 1
+                  <TimelineDot 
+                    color="primary" 
+                    variant="filled"
+                    sx={{ 
+                      width: 16, 
+                      height: 16,
+                      boxShadow: 3
                     }}
-                  >
-                    💼
-                  </TimelineDot>
-                  {index < detailedExperiences.length - 1 && <TimelineConnector />}
+                  />
+                  {index < detailedExperiences.length - 1 && (
+                    <TimelineConnector sx={{ bgcolor: 'primary.main' }} />
+                  )}
                 </TimelineSeparator>
                 
-                <TimelineContent sx={{ py: 2 }}>
-                  <Card
-                    elevation={3}
-                    sx={{
-                      borderRadius: 3,
-                      overflow: 'hidden',
-                      '&:hover': {
-                        elevation: 6,
-                        transform: 'translateY(-2px)',
-                        transition: 'all 0.3s ease-in-out'
-                      }
-                    }}
-                  >
-                    <CardContent sx={{ p: 3 }}>
-                      <Box display="flex" alignItems="center" gap={2} mb={2}>
-                        <Typography variant="h4" color="primary" sx={{ flexGrow: 1 }}>
-                          {exp.company}
-                        </Typography>
-                        <IconButton
-                          href={exp.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          color="primary"
-                          size="small"
-                          component={motion.a}
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          sx={{
-                            backgroundColor: 'primary.light',
-                            color: 'white',
-                            '&:hover': {
-                              backgroundColor: 'primary.main'
-                            }
-                          }}
-                        >
-                          ↗
-                        </IconButton>
-                      </Box>
-
-                      <Typography variant="h5" sx={{ fontWeight: 600, mb: 1 }}>
-                        {exp.role}
-                      </Typography>
-                      
-                      <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                        {exp.period}
-                      </Typography>
-
-                      <Typography variant="body1" paragraph sx={{ lineHeight: 1.7 }}>
-                        {exp.description}
-                      </Typography>
-
-                      <Button
-                        onClick={() => toggleExpansion(index)}
-                        endIcon={expandedExperience === index ? <span>▲</span> : <span>▼</span>}
-                        color="primary"
-                        component={motion.button}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        sx={{ textTransform: 'none', mb: 1 }}
+                <TimelineContent sx={{ py: 3, px: 2 }}>
+                  <Box sx={{ mb: 3 }}>
+                    <Box display="flex" alignItems="center" gap={2} mb={1}>
+                      <Typography 
+                        variant="h5" 
+                        component="h3" 
+                        sx={{ 
+                          fontWeight: 600,
+                          color: 'primary.main'
+                        }}
                       >
-                        {expandedExperience === index ? 'Show less' : 'View details'}
-                      </Button>
+                        {exp.company}
+                      </Typography>
+                      <IconButton
+                        href={exp.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        size="small"
+                        sx={{ 
+                          color: 'primary.main',
+                          '&:hover': { color: 'primary.dark' }
+                        }}
+                      >
+                        ↗
+                      </IconButton>
+                    </Box>
 
-                      <Collapse in={expandedExperience === index}>
-                        <Box sx={{ mt: 2, pt: 2, borderTop: 1, borderColor: 'divider' }}>
-                          <Typography variant="h6" gutterBottom>
-                            Key Achievements:
-                          </Typography>
-                          <Box component="ul" sx={{ pl: 3, mb: 3 }}>
-                            {exp.details.map((detail, detailIndex) => (
-                              <Typography
-                                key={detailIndex}
-                                component="li"
-                                variant="body2"
-                                sx={{ mb: 1, lineHeight: 1.6 }}
-                              >
-                                {detail}
-                              </Typography>
-                            ))}
-                          </Box>
-                          
-                          <Typography variant="h6" gutterBottom>
-                            Technologies Used:
-                          </Typography>
-                          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                            {exp.technologies.map((tech, techIndex) => (
-                              <Chip
-                                key={techIndex}
-                                label={tech}
-                                color="primary"
-                                variant="outlined"
-                                size="small"
-                                sx={{
-                                  fontWeight: 500,
-                                  '&:hover': {
-                                    backgroundColor: 'primary.light',
-                                    color: 'white'
-                                  }
-                                }}
-                              />
-                            ))}
-                          </Box>
+                    <Typography 
+                      variant="h6" 
+                      sx={{ 
+                        fontWeight: 500,
+                        color: 'text.primary',
+                        mb: 0.5
+                      }}
+                    >
+                      {exp.role}
+                    </Typography>
+                    
+                    <Typography 
+                      variant="body2" 
+                      sx={{ 
+                        color: 'text.secondary',
+                        mb: 2
+                      }}
+                    >
+                      {exp.period}
+                    </Typography>
+
+                    <Typography 
+                      variant="body1" 
+                      sx={{ 
+                        lineHeight: 1.6,
+                        mb: 2
+                      }}
+                    >
+                      {exp.description}
+                    </Typography>
+
+                    <Button
+                      onClick={() => toggleExpansion(index)}
+                      variant="text"
+                      color="primary"
+                      size="small"
+                      sx={{ 
+                        textTransform: 'none',
+                        fontWeight: 500,
+                        mb: 2
+                      }}
+                    >
+                      {expandedExperience === index ? 'Show less ↑' : 'View details ↓'}
+                    </Button>
+
+                    <Collapse in={expandedExperience === index}>
+                      <Box sx={{ mt: 2, pt: 2, borderTop: 1, borderColor: 'divider' }}>
+                        <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 1 }}>
+                          Key Achievements:
+                        </Typography>
+                        
+                        <Box component="ul" sx={{ pl: 2, mb: 3 }}>
+                          {exp.details.map((detail, detailIndex) => (
+                            <Typography
+                              key={detailIndex}
+                              component="li"
+                              variant="body2"
+                              sx={{ 
+                                mb: 1, 
+                                lineHeight: 1.5,
+                                '&::marker': { color: 'primary.main' }
+                              }}
+                            >
+                              {detail}
+                            </Typography>
+                          ))}
                         </Box>
-                      </Collapse>
-                    </CardContent>
-                  </Card>
+                        
+                        <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 1 }}>
+                          Technologies:
+                        </Typography>
+                        
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                          {exp.technologies.map((tech, techIndex) => (
+                            <Chip
+                              key={techIndex}
+                              label={tech}
+                              size="small"
+                              variant="outlined"
+                              sx={{
+                                borderColor: 'primary.main',
+                                color: 'primary.main',
+                                '&:hover': {
+                                  backgroundColor: 'primary.main',
+                                  color: 'white'
+                                }
+                              }}
+                            />
+                          ))}
+                        </Box>
+                      </Box>
+                    </Collapse>
+                  </Box>
                 </TimelineContent>
               </TimelineItem>
             ))}
@@ -252,10 +244,12 @@ const DetailedExperienceView = React.memo(({ open, onClose }) => {
               <Button
                 onClick={scrollToTop}
                 color="primary"
-                component={motion.button}
-                whileHover={{ y: -2 }}
-                whileTap={{ y: 0 }}
-                sx={{ textTransform: 'none' }}
+                sx={{ 
+                  textTransform: 'none',
+                  '&:hover': {
+                    transform: 'translateY(-2px)'
+                  }
+                }}
               >
                 Back to top ↑
               </Button>
