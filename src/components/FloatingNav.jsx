@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { 
+    Fab, 
+    Paper, 
+    Tabs, 
+    Tab, 
+    Button, 
+    Box, 
+    Divider,
+    Tooltip
+} from '@mui/material';
 
 const FloatingNav = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -54,52 +64,100 @@ const FloatingNav = () => {
         document.body.removeChild(link);
     };
 
+    const handleTabChange = (event, newValue) => {
+        scrollToSection(newValue);
+    };
+
     return (
         <AnimatePresence>
             {isVisible && (
-                <motion.div className="fixed bottom-6 left-0 right-0 z-50 flex justify-center">
-                    <motion.nav
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 50 }}
+                <Box
+                    component={motion.div}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 50 }}
+                    sx={{
+                        position: 'fixed',
+                        bottom: 24,
+                        left: 0,
+                        right: 0,
+                        zIndex: 1300,
+                        display: 'flex',
+                        justifyContent: 'center'
+                    }}
+                >
+                    <Paper
+                        elevation={8}
+                        sx={{
+                            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                            backdropFilter: 'blur(10px)',
+                            borderRadius: '50px',
+                            padding: '8px 16px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 1
+                        }}
                     >
-                        <div className="bg-white/90 backdrop-blur-md border border-gray-200 rounded-full px-6 py-3 shadow-lg">
-                            <div className="flex items-center gap-2">
-                                {sections.map((section) => (
-                                    <button
-                                        key={section.id}
-                                        onClick={() => scrollToSection(section.id)}
-                                        className={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
-                                            activeSection === section.id
-                                                ? 'bg-blue-900 text-white'
-                                                : 'text-gray-600 hover:text-blue-900 hover:bg-blue-50'
-                                        }`}
-                                    >
-                                        {section.label}
-                                    </button>
-                                ))}
-                                <div className="w-px h-6 bg-gray-300 mx-2"></div>
-                                <button
-                                    onClick={downloadCV}
-                                    className="px-4 py-2 bg-blue-900 text-white rounded-full text-sm font-medium hover:bg-blue-800 transition-all duration-300 flex items-center gap-2"
-                                    title="Download CV"
-                                >
-                                    <svg 
-                                        width="16" 
-                                        height="16" 
-                                        viewBox="0 0 24 24" 
-                                        fill="currentColor"
-                                        className="inline-block"
-                                    >
-                                        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
-                                        <path d="M12,19L8,15H10.5V12H13.5V15H16L12,19Z"/>
-                                    </svg>
-                                    CV
-                                </button>
-                            </div>
-                        </div>
-                    </motion.nav>
-                </motion.div>
+                        <Tabs
+                            value={activeSection}
+                            onChange={handleTabChange}
+                            variant="scrollable"
+                            scrollButtons="auto"
+                            sx={{
+                                minHeight: 'auto',
+                                '& .MuiTabs-indicator': {
+                                    display: 'none'
+                                },
+                                '& .MuiTab-root': {
+                                    minHeight: 'auto',
+                                    minWidth: 'auto',
+                                    padding: '6px 12px',
+                                    fontSize: '0.875rem',
+                                    fontWeight: 500,
+                                    borderRadius: '20px',
+                                    margin: '0 2px',
+                                    transition: 'all 0.3s',
+                                    textTransform: 'none',
+                                    '&.Mui-selected': {
+                                        backgroundColor: 'primary.main',
+                                        color: 'white',
+                                    },
+                                    '&:hover': {
+                                        backgroundColor: 'primary.light',
+                                        color: 'white',
+                                    }
+                                }
+                            }}
+                        >
+                            {sections.map((section) => (
+                                <Tab
+                                    key={section.id}
+                                    label={section.label}
+                                    value={section.id}
+                                />
+                            ))}
+                        </Tabs>
+                        
+                        <Divider orientation="vertical" flexItem sx={{ mx: 1 }} />
+                        
+                        <Tooltip title="Download CV" arrow>
+                            <Button
+                                onClick={downloadCV}
+                                variant="contained"
+                                color="primary"
+                                size="small"
+                                sx={{
+                                    borderRadius: '20px',
+                                    textTransform: 'none',
+                                    fontWeight: 500,
+                                    px: 2
+                                }}
+                            >
+                                CV
+                            </Button>
+                        </Tooltip>
+                    </Paper>
+                </Box>
             )}
         </AnimatePresence>
     );

@@ -25,14 +25,7 @@ function App() {
 								<h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-blue-900 mb-4 leading-tight">
 									Felix Lau Pangestu
 								</h1>
-								
-								<div className="text-xl sm:text-2xl text-gray-600 mb-2">
-									Software Engineer
-								</div>
-								
-								<div className="text-base sm:text-lg text-blue-900 mb-8">
-									Taikoo, Hong Kong • +852 94381766
-								</div>
+							
 							</div>
 							
 							<div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-lg overflow-hidden border-4 border-blue-900 flex-shrink-0">
@@ -45,35 +38,15 @@ function App() {
 						</div>
 
 						<div className="space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed">
-						<p>
-							Hi, I’m Felix — a final-year Business Computing & Data Analytics student at Hong Kong Baptist University. Alongside my studies, I’ve enjoyed being involved
-							as a Student Ambassador, Peer Mentor, and Computer Science Tutor, where I get to both represent my university
-							and support fellow students.
-						</p>
-
-						<p>
-							I’m Chinese-Indonesian and currently based in Hong Kong. Last year, I spent a semester abroad at
-							Nanyang Technological University in Singapore on the Fung Scholarship — an experience that really broadened
-							my perspective. My Cantonese is still a work in progress, but I’m a native English speaker and love being
-							part of an international community here in Hong Kong.
-						</p>
-
-						<p>
-							I’m particularly passionate about how emerging technologies can be applied to meaningful, real-world problems.
-							Right now, I’m building <span className="font-medium">Read the Vision</span>,
-							a computer vision project designed to support communication within deaf and mute communities.
-							I’ve also had the chance to work on projects ranging from optimizing APIs to experimenting with
-							large language models — experiences that deepened my interest in combining research with practical,
-							user-focused solutions. Outside of class and work, I play Rugby, Powerlift, and play tons of Poker!
-						</p>
+						<p> Hi, I’m Felix—a final-year Business Computing & Data Analytics student at Hong Kong Baptist University. Alongside my studies, I’ve enjoyed being involved as the Faculty of Science Student Representative, Student Ambassador, Peer Mentor, and Computer Science Tutor, where I get to represent my university and support fellow students. </p> 
+						<p> I’m Chinese-Indonesian and currently based in Hong Kong. Last year, I spent a semester abroad at Nanyang Technological University in Singapore on the Fung Scholarship—an experience that really broadened my perspective. I value being part of an international community here in Hong Kong. </p> 
+						<p> I’m particularly passionate about how emerging technologies can be applied to meaningful, real-world problems. Right now, I’m building <span className="font-medium">Read the Vision</span>, a computer vision project designed to support communication within deaf and mute communities. I’ve also worked on projects ranging from optimizing APIs to experimenting with large language models—experiences that deepened my interest in combining research with practical, user-focused solutions. Outside of class and work, I play rugby, powerlift, and play tons of poker! </p>
 
 						<p>
 							If you’d like to connect, you can find me on{' '}
 							<a href="https://linkedin.com/in/jfelixpangestu/" className="text-blue-900 hover:underline font-medium">LinkedIn</a>,
 							check out my projects on{' '}
 							<a href="https://github.com/cdfelixj" className="text-blue-900 hover:underline font-medium">GitHub</a>,
-							explore my{' '}
-							<a href="https://cdfelixj.netlify.app" className="text-blue-900 hover:underline font-medium">portfolio</a>,
 							or just drop me a message at{' '}
 							<a href="mailto:cd.felixj@gmail.com" className="text-blue-900 hover:underline font-medium">cd.felixj@gmail.com</a>.
 						</p>
@@ -300,9 +273,6 @@ function App() {
 							onClick={() => setShowDetailedActivities(true)}
 							className="inline-flex items-center px-8 py-4 bg-blue-900 text-white rounded-lg font-semibold text-lg hover:bg-blue-800 transition-colors duration-300"
 						>
-							<svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-							</svg>
 							View All Activities & Achievements
 						</button>
 					</div>
@@ -319,13 +289,11 @@ function App() {
 						
 						<p>
 							Easiest way to reach me is at{' '}
-							<a href="mailto:cd.felixj@gmail.com" className="text-blue-900 hover:underline font-medium">cd.felixj@gmail.com</a>{' '}
-							or if it's urgent, call me at{' '}
-							<a href="tel:+85294381766" className="text-blue-900 hover:underline font-medium">+852 94381766</a>.
+							<a href="mailto:cd.felixj@gmail.com" className="text-blue-900 hover:underline font-medium">cd.felixj@gmail.com</a>.
 							I'm based in Taikoo, Hong Kong and usually respond pretty quickly (unless I'm in the gym or lost in code). You can also stalk my projects on{' '}
 							<a href="https://github.com/cdfelixj" className="text-blue-900 hover:underline font-medium">GitHub</a>,{' '}
 							connect on{' '}
-							<a href="https://linkedin.com/in/jfelixpangestu/" className="text-blue-900 hover:underline font-medium">LinkedIn</a>, or browse more of my work on my{' '}
+							<a href="https://www.linkedin.com/in/jfelixpangestu/" className="text-blue-900 hover:underline font-medium">LinkedIn</a>, or browse more of my work on my{' '}
 							<a href="#" className="text-blue-900 hover:underline font-medium">full portfolio</a>.
 						</p>
 					</div>

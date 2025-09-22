@@ -1,183 +1,269 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Dialog,
+  DialogContent,
+  Typography,
+  IconButton,
+  Container,
+  Card,
+  CardContent,
+  Button,
+  Box,
+  Divider,
+  Chip,
+  Collapse,
+  Avatar
+} from '@mui/material';
+import {
+  Timeline,
+  TimelineItem,
+  TimelineContent,
+  TimelineDot,
+  TimelineConnector,
+  TimelineSeparator
+} from '@mui/lab';
 import { detailedExperiences } from '../data';
 
 const DetailedExperienceView = React.memo(({ open, onClose }) => {
   const [expandedExperience, setExpandedExperience] = useState(null);
   const scrollContainerRef = useRef(null);
 
+  const scrollToTop = () => {
+    scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
-  if (!open) return null;
+  const toggleExpansion = (index) => {
+    setExpandedExperience(expandedExperience === index ? null : index);
+  };
 
   return (
-    <AnimatePresence>
-      <motion.div
+    <Dialog
+      open={open}
+      onClose={onClose}
+      maxWidth={false}
+      fullScreen
+      PaperProps={{
+        component: motion.div,
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        exit: { opacity: 0 },
+        transition: { duration: 0.4, ease: "easeInOut" },
+        sx: {
+          backgroundColor: 'background.default',
+          overflow: 'hidden'
+        }
+      }}
+    >
+      <Box
         ref={scrollContainerRef}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.9)',
-          zIndex: 9999,
+        sx={{
+          height: '100vh',
           overflow: 'auto',
+          backgroundColor: 'background.default'
         }}
       >
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 30 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="min-h-screen bg-white py-16"
+        {/* Header */}
+        <Box
+          sx={{
+            position: 'sticky',
+            top: 0,
+            zIndex: 1200,
+            borderBottom: 1,
+            borderColor: 'divider',
+            backdropFilter: 'blur(10px)',
+            backgroundColor: 'rgba(255, 255, 255, 0.95)'
+          }}
         >
-          <div className="max-w-6xl mx-auto px-8">
-            {/* Header */}
-            <div className="flex justify-between items-center mb-16">
-              <div>
-                <h1 className="text-5xl font-bold text-blue-900 mb-4">Complete Professional Journey</h1>
-                <p className="text-xl text-gray-600">My career progression in technology and innovation</p>
-              </div>
-              <motion.button 
+          <Container maxWidth="lg" sx={{ py: 3 }}>
+            <Box display="flex" justifyContent="space-between" alignItems="center">
+              <Box>
+                <Typography variant="h1" color="primary" gutterBottom>
+                  Complete Professional Journey
+                </Typography>
+                <Typography variant="h6" color="text.secondary">
+                  My career progression in technology and innovation
+                </Typography>
+              </Box>
+              <IconButton
                 onClick={onClose}
-                className="text-blue-900 hover:text-blue-700 transition-colors duration-300 text-2xl font-bold p-2"
-                whileHover={{ 
-                  scale: 1.1,
-                  transition: { duration: 0.2, ease: "easeOut" }
-                }}
+                color="primary"
+                size="large"
+                component={motion.button}
+                whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
+                sx={{
+                  '&:hover': {
+                    backgroundColor: 'primary.light',
+                    color: 'white'
+                  }
+                }}
               >
                 ✕
-              </motion.button>
-            </div>
+              </IconButton>
+            </Box>
+          </Container>
+        </Box>
 
-            {/* Experience Timeline */}
-            <div className="relative">
-              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-blue-900"></div>
-              
-              <div className="space-y-12">
-                {detailedExperiences.map((exp, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ 
-                      duration: 0.4, 
-                      delay: index * 0.08,
-                      ease: "easeOut"
-                    }}
-                    className="relative pl-12"
-                  >
-                    <div className="absolute left-0 w-8 h-8 bg-blue-900 rounded-full flex items-center justify-center">
-                      <div className="w-3 h-3 bg-white rounded-full"></div>
-                    </div>
-                    
-                    <div className="space-y-4">
-                      <div>
-                        <div className="flex items-center gap-3 mb-2">
-                          <h3 className="text-2xl font-bold text-blue-900">{exp.company}</h3>
-                          <motion.a
-                            href={exp.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center w-8 h-8 bg-blue-100 hover:bg-blue-200 text-blue-900 rounded-full transition-colors duration-300"
-                            whileHover={{ 
-                              scale: 1.05,
-                              transition: { duration: 0.2, ease: "easeOut" }
-                            }}
-                            whileTap={{ scale: 0.95 }}
-                            title="Visit company website"
-                          >
-                            <svg 
-                              className="w-4 h-4" 
-                              fill="none" 
-                              stroke="currentColor" 
-                              viewBox="0 0 24 24" 
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path 
-                                strokeLinecap="round" 
-                                strokeLinejoin="round" 
-                                strokeWidth={2} 
-                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
-                              />
-                            </svg>
-                          </motion.a>
-                        </div>
-                        <h4 className="text-xl font-semibold text-gray-800">{exp.role}</h4>
-                        <p className="text-gray-600">{exp.period}</p>
-                      </div>
-                      
-                      <p className="text-lg">{exp.description}</p>
-                      
-                      <motion.button
-                        onClick={() => setExpandedExperience(expandedExperience === index ? null : index)}
-                        className="text-blue-900 hover:text-blue-700 font-medium transition-colors duration-300"
-                        whileHover={{ 
-                          scale: 1.02,
-                          transition: { duration: 0.2, ease: "easeOut" }
-                        }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        {expandedExperience === index ? 'Show less ↑' : 'View details ↓'}
-                      </motion.button>
-                      
-                      {expandedExperience === index && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0, y: -10 }}
-                          animate={{ opacity: 1, height: 'auto', y: 0 }}
-                          exit={{ opacity: 0, height: 0, y: -10 }}
-                          transition={{ 
-                            duration: 0.3,
-                            ease: "easeInOut"
-                          }}
-                          className="space-y-4 overflow-hidden"
-                        >
-                          <ul className="list-disc list-inside space-y-2 text-gray-700">
-                            {exp.details.map((detail, detailIndex) => (
-                              <li key={detailIndex}>{detail}</li>
-                            ))}
-                          </ul>
-                          <div className="flex flex-wrap gap-2">
-                            {exp.technologies.map((tech, techIndex) => (
-                              <span
-                                key={techIndex}
-                                className="px-3 py-1 bg-blue-100 text-blue-900 rounded-full text-sm font-medium"
-                              >
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Back to top */}
-            <div className="mt-16 pt-8 border-t border-gray-200 text-center">
-              <motion.button 
-                onClick={() => scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="text-blue-900 hover:text-blue-700 font-medium transition-colors duration-300"
-                whileHover={{ 
-                  y: -2,
-                  transition: { duration: 0.2, ease: "easeOut" }
+        {/* Experience Content */}
+        <Container maxWidth="lg" sx={{ py: 4 }}>
+          <Timeline position="right" sx={{ px: 0 }}>
+            {detailedExperiences.map((exp, index) => (
+              <TimelineItem
+                key={index}
+                component={motion.div}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.08,
+                  ease: "easeOut"
                 }}
+              >
+                <TimelineSeparator>
+                  <TimelineDot
+                    color="primary"
+                    variant="outlined"
+                    sx={{
+                      borderWidth: 3,
+                      p: 1
+                    }}
+                  >
+                    💼
+                  </TimelineDot>
+                  {index < detailedExperiences.length - 1 && <TimelineConnector />}
+                </TimelineSeparator>
+                
+                <TimelineContent sx={{ py: 2 }}>
+                  <Card
+                    elevation={3}
+                    sx={{
+                      borderRadius: 3,
+                      overflow: 'hidden',
+                      '&:hover': {
+                        elevation: 6,
+                        transform: 'translateY(-2px)',
+                        transition: 'all 0.3s ease-in-out'
+                      }
+                    }}
+                  >
+                    <CardContent sx={{ p: 3 }}>
+                      <Box display="flex" alignItems="center" gap={2} mb={2}>
+                        <Typography variant="h4" color="primary" sx={{ flexGrow: 1 }}>
+                          {exp.company}
+                        </Typography>
+                        <IconButton
+                          href={exp.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          color="primary"
+                          size="small"
+                          component={motion.a}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          sx={{
+                            backgroundColor: 'primary.light',
+                            color: 'white',
+                            '&:hover': {
+                              backgroundColor: 'primary.main'
+                            }
+                          }}
+                        >
+                          ↗
+                        </IconButton>
+                      </Box>
+
+                      <Typography variant="h5" sx={{ fontWeight: 600, mb: 1 }}>
+                        {exp.role}
+                      </Typography>
+                      
+                      <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                        {exp.period}
+                      </Typography>
+
+                      <Typography variant="body1" paragraph sx={{ lineHeight: 1.7 }}>
+                        {exp.description}
+                      </Typography>
+
+                      <Button
+                        onClick={() => toggleExpansion(index)}
+                        endIcon={expandedExperience === index ? <span>▲</span> : <span>▼</span>}
+                        color="primary"
+                        component={motion.button}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        sx={{ textTransform: 'none', mb: 1 }}
+                      >
+                        {expandedExperience === index ? 'Show less' : 'View details'}
+                      </Button>
+
+                      <Collapse in={expandedExperience === index}>
+                        <Box sx={{ mt: 2, pt: 2, borderTop: 1, borderColor: 'divider' }}>
+                          <Typography variant="h6" gutterBottom>
+                            Key Achievements:
+                          </Typography>
+                          <Box component="ul" sx={{ pl: 3, mb: 3 }}>
+                            {exp.details.map((detail, detailIndex) => (
+                              <Typography
+                                key={detailIndex}
+                                component="li"
+                                variant="body2"
+                                sx={{ mb: 1, lineHeight: 1.6 }}
+                              >
+                                {detail}
+                              </Typography>
+                            ))}
+                          </Box>
+                          
+                          <Typography variant="h6" gutterBottom>
+                            Technologies Used:
+                          </Typography>
+                          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                            {exp.technologies.map((tech, techIndex) => (
+                              <Chip
+                                key={techIndex}
+                                label={tech}
+                                color="primary"
+                                variant="outlined"
+                                size="small"
+                                sx={{
+                                  fontWeight: 500,
+                                  '&:hover': {
+                                    backgroundColor: 'primary.light',
+                                    color: 'white'
+                                  }
+                                }}
+                              />
+                            ))}
+                          </Box>
+                        </Box>
+                      </Collapse>
+                    </CardContent>
+                  </Card>
+                </TimelineContent>
+              </TimelineItem>
+            ))}
+          </Timeline>
+
+          {/* Back to top section */}
+          <Box sx={{ mt: 6, pt: 4 }}>
+            <Divider sx={{ mb: 4 }} />
+            <Box display="flex" justifyContent="center">
+              <Button
+                onClick={scrollToTop}
+                color="primary"
+                component={motion.button}
+                whileHover={{ y: -2 }}
                 whileTap={{ y: 0 }}
+                sx={{ textTransform: 'none' }}
               >
                 Back to top ↑
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
+              </Button>
+            </Box>
+          </Box>
+        </Container>
+      </Box>
+    </Dialog>
   );
 });
 

@@ -1,136 +1,216 @@
 import React, { useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  Typography,
+  IconButton,
+  Container,
+  Card,
+  CardContent,
+  Button,
+  Link,
+  Box,
+  Divider,
+  Fab
+} from '@mui/material';
 import { detailedProjects } from '../data';
 
 const DetailedProjectsView = React.memo(({ open, onClose }) => {
   const scrollContainerRef = useRef(null);
 
-  if (!open) return null;
+  const scrollToTop = () => {
+    scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
-    <AnimatePresence>
-      <motion.div
+    <Dialog
+      open={open}
+      onClose={onClose}
+      maxWidth={false}
+      fullScreen
+      PaperProps={{
+        component: motion.div,
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        exit: { opacity: 0 },
+        transition: { duration: 0.4, ease: "easeInOut" },
+        sx: {
+          backgroundColor: 'background.default',
+          overflow: 'hidden'
+        }
+      }}
+    >
+      <Box
         ref={scrollContainerRef}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.9)',
-          zIndex: 9999,
+        sx={{
+          height: '100vh',
           overflow: 'auto',
+          backgroundColor: 'background.default'
         }}
       >
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 30 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="min-h-screen bg-white py-16"
+        {/* Header */}
+        <Box
+          sx={{
+            position: 'sticky',
+            top: 0,
+            zIndex: 1200,
+            borderBottom: 1,
+            borderColor: 'divider',
+            backdropFilter: 'blur(10px)',
+            backgroundColor: 'rgba(255, 255, 255, 0.95)'
+          }}
         >
-          <div className="max-w-6xl mx-auto px-8">
-            {/* Header */}
-            <div className="flex justify-between items-center mb-16">
-              <div>
-                <h1 className="text-5xl font-bold text-blue-900 mb-4">Complete Project Portfolio</h1>
-                <p className="text-xl text-gray-600">Innovative solutions that make a meaningful impact</p>
-              </div>
-              <motion.button 
+          <Container maxWidth="lg" sx={{ py: 3 }}>
+            <Box display="flex" justifyContent="space-between" alignItems="center">
+              <Box>
+                <Typography variant="h1" color="primary" gutterBottom>
+                  Complete Project Portfolio
+                </Typography>
+                <Typography variant="h6" color="text.secondary">
+                  Innovative solutions that make a meaningful impact
+                </Typography>
+              </Box>
+              <IconButton
                 onClick={onClose}
-                className="text-blue-900 hover:text-blue-700 transition-colors duration-300 text-2xl font-bold p-2"
-                whileHover={{ 
-                  scale: 1.1,
-                  transition: { duration: 0.2, ease: "easeOut" }
-                }}
+                color="primary"
+                size="large"
+                component={motion.button}
+                whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
+                sx={{
+                  '&:hover': {
+                    backgroundColor: 'primary.light',
+                    color: 'white'
+                  }
+                }}
               >
                 ✕
-              </motion.button>
-            </div>
+              </IconButton>
+            </Box>
+          </Container>
+        </Box>
 
-            {/* Projects */}
-            <div className="space-y-20">
-              {detailedProjects.map((project, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.4, 
-                    delay: index * 0.08,
-                    ease: "easeOut"
-                  }}
-                  className="space-y-6"
-                >
-                  <h3 className="text-3xl font-bold text-blue-900">{project.title}</h3>
-                  
+        {/* Projects Content */}
+        <Container maxWidth="lg" sx={{ py: 4 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+            {detailedProjects.map((project, index) => (
+              <Card
+                key={index}
+                component={motion.div}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.08,
+                  ease: "easeOut"
+                }}
+                elevation={3}
+                sx={{
+                  borderRadius: 3,
+                  overflow: 'hidden',
+                  '&:hover': {
+                    elevation: 6,
+                    transform: 'translateY(-2px)',
+                    transition: 'all 0.3s ease-in-out'
+                  }
+                }}
+              >
+                <CardContent sx={{ p: 4 }}>
+                  <Typography variant="h3" color="primary" gutterBottom>
+                    {project.title}
+                  </Typography>
+
                   {project.impact && (
-                    <p className="text-xl font-medium text-gray-800">{project.impact}</p>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontWeight: 500,
+                        color: 'text.primary',
+                        mb: 2
+                      }}
+                    >
+                      {project.impact}
+                    </Typography>
                   )}
-                  
-                  <p className="text-lg leading-relaxed">{project.description}</p>
-                  
+
+                  <Typography variant="body1" paragraph sx={{ lineHeight: 1.7 }}>
+                    {project.description}
+                  </Typography>
+
                   {project.technical && (
-                    <p className="text-lg leading-relaxed text-gray-700">{project.technical}</p>
+                    <Typography
+                      variant="body1"
+                      paragraph
+                      sx={{
+                        color: 'text.secondary',
+                        lineHeight: 1.7
+                      }}
+                    >
+                      {project.technical}
+                    </Typography>
                   )}
-                  
-                  <div className="flex gap-4">
+
+                  <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', mt: 3 }}>
                     {project.githubUrl && (
-                      <a
+                      <Button
+                        variant="outlined"
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-900 hover:text-blue-700 font-medium hover:underline transition-colors duration-300"
+                        sx={{ textTransform: 'none' }}
                       >
                         GitHub
-                      </a>
+                      </Button>
                     )}
                     {project.liveUrl && (
-                      <a
+                      <Button
+                        variant="contained"
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-900 hover:text-blue-700 font-medium hover:underline transition-colors duration-300"
+                        sx={{ textTransform: 'none' }}
                       >
                         Live Site
-                      </a>
+                      </Button>
                     )}
-                    {project.links.filter(link => !['GitHub', 'Live Site'].includes(link)).map((link, linkIndex) => (
-                      <span
-                        key={linkIndex}
-                        className="text-blue-900 hover:text-blue-700 font-medium hover:underline transition-colors duration-300 cursor-pointer"
-                      >
-                        {link}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                    {project.links
+                      .filter(link => !['GitHub', 'Live Site'].includes(link))
+                      .map((link, linkIndex) => (
+                        <Button
+                          key={linkIndex}
+                          variant="text"
+                          sx={{ textTransform: 'none' }}
+                        >
+                          {link}
+                        </Button>
+                      ))}
+                  </Box>
+                </CardContent>
+              </Card>
+            ))}
+          </Box>
 
-            {/* Back to top */}
-            <div className="mt-16 pt-8 border-t border-gray-200 text-center">
-              <motion.button 
-                onClick={() => scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="text-blue-900 hover:text-blue-700 font-medium transition-colors duration-300"
-                whileHover={{ 
-                  y: -2,
-                  transition: { duration: 0.2, ease: "easeOut" }
-                }}
+          {/* Back to top section */}
+          <Box sx={{ mt: 6, pt: 4 }}>
+            <Divider sx={{ mb: 4 }} />
+            <Box display="flex" justifyContent="center">
+              <Button
+                onClick={scrollToTop}
+                color="primary"
+                component={motion.button}
+                whileHover={{ y: -2 }}
                 whileTap={{ y: 0 }}
+                sx={{ textTransform: 'none' }}
               >
                 Back to top ↑
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
+              </Button>
+            </Box>
+          </Box>
+        </Container>
+      </Box>
+    </Dialog>
   );
 });
 
