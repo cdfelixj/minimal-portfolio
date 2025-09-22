@@ -5,6 +5,18 @@
 /* Smooth scrolling for the entire page */
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overflow-x: hidden;
+}
+
+body {
+  scroll-snap-type: y mandatory;
+}
+
+/* Snap scrolling for sections */
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 /* Custom animations */
