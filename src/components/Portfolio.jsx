@@ -6,7 +6,7 @@ import sliderData from '../data/slider';
 
 export default function Portfolio() {
   return (
-    <div className="flex flex-col items-center justify-center my-10">
+    <div className="flex flex-col items-start my-10">
       <div className ="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {portfolio.map(project => (
             <PortfolioItem 
