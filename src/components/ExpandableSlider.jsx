@@ -29,7 +29,11 @@ export default function ExpandableSlider({ slides }) {
         >
           <div className="label">
             <div className="icon">
-              <i className={slide.icon}></i>
+              {slide.icon.startsWith('/') ? (
+                <img src={slide.icon} alt={slide.title} className="icon-image" />
+              ) : (
+                <i className={slide.icon}></i>
+              )}
             </div>
             <div className="info">
               <div className="main">{slide.title}</div>

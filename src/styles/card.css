@@ -81,13 +81,13 @@
 }
 
 .big-card:nth-child(8) {
-  background-image: url("/public/assets/cardPhotos/admazes.jpg");
+  background-image: url("/public/assets/cardPhotos/ntu.jpg");
   transform: translate(10%, 3%) rotate(5deg);
 }
 
 
 .little-card:nth-child(1) {
-  background-image: url("/public/assets/cardPhotos/markworth.jpg");
+  background-image: url("/public/assets/cardPhotos/waterloo.jpg");
 }
 
 .little-card:nth-child(3) {
@@ -95,7 +95,7 @@
 }
 
 .little-card:nth-child(5) {
-  background-image: url("/public/assets/cardPhotos/team photo.png");
+  background-image: url("/public/assets/cardPhotos/aws.jpg");
 }
 
 .little-card:nth-child(7) {

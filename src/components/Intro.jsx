@@ -24,7 +24,9 @@ export default function Intro() {
           ))}
       </div>
 
+      <div className="w-full flex justify-center">
           <Card />
+      </div>
     </div>
   )
 }

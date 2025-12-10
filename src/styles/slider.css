@@ -54,6 +54,13 @@
     color: white;
 }
 
+.icon-image {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
 .info {
     display: flex;
     flex-direction: column;

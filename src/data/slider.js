@@ -1,26 +1,50 @@
 export default [
     {
-        image: '/assets/cardPhotos/admazes.jpg',
-        icon: 'fas fa-walking',
-        title: 'Nature Walk',
-        subtitle: 'Beautiful mountain scenery'
+        image: '/assets/companyPhotos/cathayteam.jpg',
+        icon: '/assets/logos/cathay.png',
+        title: 'Cathay Pacific',
+        subtitle: 'Innovation Project Team'
     },
     {
-        image: '/assets/cardPhotos/arms.jpg',
-        icon: 'fas fa-tree',
-        title: 'Forest',
-        subtitle: 'Green & peaceful environment'
+        image: '/assets/companyPhotos/cathayloyalty.jpg',
+        icon: '/assets/logos/cathay.png',
+        title: 'Cathay Pacific',
+        subtitle: 'Loyalty Team'
     },
     {
-        image: '/assets/cardPhotos/fish.jpg',
-        icon: 'fas fa-mountain',
-        title: 'Mountains',
-        subtitle: 'Snowy high peaks'
+        image: '/assets/companyPhotos/cathayPTNR.jpg',
+        icon: '/assets/logos/cathay.png',
+        title: 'Cathay Pacific',
+        subtitle: 'Partnership Team'
     },
     {
-        image: '/assets/cardPhotos/gf.jpg',
-        icon: 'fas fa-water',
-        title: 'Lake View',
-        subtitle: 'Calm and relaxing water'
+        image: '/assets/companyPhotos/peerTutor.jpg',
+        icon: '/assets/logos/hkbu.jpeg',
+        title: 'HKBU',
+        subtitle: 'Guiding juniors on finding an internship'
+    },
+    {
+        image: '/assets/companyPhotos/Wizpresso.jpg',
+        icon: '/assets/logos/wizpresso_logo.jpeg',
+        title: 'Wizpresso',
+        subtitle: 'Software Engineer Internship'
+    },
+    {
+        image: '/assets/companyPhotos/RTVTeam.jpg',
+        icon: '/assets/github.svg',
+        title: 'ReadTheVision',
+        subtitle: 'Startup Team, 100k funds raised'
+    },
+    {
+        image: '/assets/companyPhotos/admazes.jpg',
+        icon: '/assets/logos/admazes.jpeg',
+        title: 'Admazes',
+        subtitle: 'Software Engineer Internship'
+    },
+    {
+        image: '/assets/companyPhotos/markworth.png',
+        icon: '/assets/logos/markworth_group_logo.jpeg',
+        title: 'Markworth',
+        subtitle: 'Product Management Intern'
     }
 ];
