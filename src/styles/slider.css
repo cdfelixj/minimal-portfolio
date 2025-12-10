@@ -79,7 +79,36 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .options {
-        height: 200px;
+        flex-direction: column;
+        height: auto;
+        min-height: 500px;
+        width: 95%;
+    }
+    
+    .option {
+        flex: 1;
+        min-height: 80px;
+        border-radius: 20px;
+    }
+    
+    .option.active {
+        flex: 3;
+        min-height: 200px;
+    }
+    
+    .label {
+        bottom: 15px;
+        left: 15px;
+    }
+    
+    .icon {
+        min-width: 35px;
+        min-height: 35px;
+    }
+    
+    .icon-image {
+        width: 24px;
+        height: 24px;
     }
     
     .info .main {
