@@ -1,7 +1,7 @@
 export default {
     name: 'Felix Lau Pangestu',
-    title: 'Student & Aspiring SWE',
-    description: "Hi! My name is Felix Lau Pangestu. I'm an aspiring software engineer currently a student at Hong Kong Baptist University studying BSc(Hons) in Business Computing & Data Analytics. My interest lies in software that could be use in finance and machine learning.",
+    title: 'Computer Science + Finance Student @ HKBU',
+    description: "I want to work in tech.",
     socials: [
         {
             name: 'LinkedIn',
