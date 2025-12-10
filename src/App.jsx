@@ -6,7 +6,7 @@ import Timeline from './components/Timeline';
 import PreLoader from './components/PreLoader';
 import RevealOnScroll from './components/RevealOnScroll';
 import Skills from './components/Skills';
-import CV from "/public/assets/Juan-Felix-Pangestu_CV.pdf"
+import CV from "/public/assets/Felix Lau Pangestu_CV.pdf"
 import ExpandableSlider from './components/ExpandableSlider';
 import sliderData from './data/slider';
 
