@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.dot-grid-bg {
+    background-image: radial-gradient(circle, rgba(59, 130, 246, 0.15) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.dark .dot-grid-bg {
+    background-image: radial-gradient(circle, rgba(251, 191, 36, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
 ::-webkit-scrollbar {
     width: 4px;
 }
