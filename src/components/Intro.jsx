@@ -1,5 +1,6 @@
 import React from 'react'
 import intro from '../data/intro'
+import Card from './Card'
 
 export default function Intro() {
   return (
@@ -23,7 +24,7 @@ export default function Intro() {
           ))}
       </div>
 
-
+          <Card />
     </div>
   )
 }

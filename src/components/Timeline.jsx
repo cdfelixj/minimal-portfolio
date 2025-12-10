@@ -7,7 +7,7 @@ export default function Timeline( {duration, title, company, details}) {
   return (
     <div className="flex flex-col md:flex-row my-20">
          <div className="w-full">
-          <Title>Timeline</Title>
+          <Title>Experience</Title>
           {timeline.map(item => (
             <TimelineItem
             duration={item.duration}

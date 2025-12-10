@@ -1,6 +1,6 @@
 import React from 'react'
 import skills from '../data/skills'
-
+import Title from './Title'
 export default function Skills() {
   const categories = [
     { title: 'Languages', data: skills.languages },
@@ -11,9 +11,7 @@ export default function Skills() {
 
   return (
     <div className="py-16">
-      <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 dark:text-white">
-        Skills
-      </h2>
+      <Title>Skills</Title>
       
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {categories.map((category, index) => (
