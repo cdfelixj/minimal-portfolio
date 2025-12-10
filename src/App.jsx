@@ -6,6 +6,7 @@ import Timeline from './components/Timeline';
 import PreLoader from './components/PreLoader';
 import RevealOnScroll from './components/RevealOnScroll';
 import AboutMe from './components/AboutMe';
+import Skills from './components/Skills';
 import CV from "/public/assets/Juan-Felix-Pangestu_CV.pdf"
 import ExpandableSlider from './components/ExpandableSlider';
 import sliderData from './data/slider';
@@ -98,17 +99,18 @@ function App() {
 	
 	
 	<div className="bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-300 min-h-screen font-inter dot-grid-bg">
-		<div className="max-w-5xl w-11/12 mx-auto">
-		
-			<Intro />
-			<RevealOnScroll>
-				<div className="w-full mt-16">
-        			<ExpandableSlider slides={sliderData} />
-      			</div>
-				<Timeline />
-			</RevealOnScroll>
-			
-			
+	<div className="max-w-5xl w-11/12 mx-auto">
+	
+		<Intro />
+		<RevealOnScroll>
+			<Skills />
+		</RevealOnScroll>
+		<RevealOnScroll>
+			<div className="w-full mt-16">
+    			<ExpandableSlider slides={sliderData} />
+  			</div>
+			<Timeline />
+		</RevealOnScroll>			
 			<RevealOnScroll>
 				<AboutMe />
 			</RevealOnScroll>
