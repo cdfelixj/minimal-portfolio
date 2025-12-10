@@ -27,7 +27,7 @@ export default [
         duration: 'Jan 2024 - Aug 2024',
         title: 'Research Assistant',
         company: 'Hong Kong Baptist University',
-        logo: '/assets/logos/1764983249337.jpeg',
+        logo: '/assets/logos/hkbu.jpeg',
         details:
             'Researched, fine-tuned, and documented Large Language Models for financial document analysis, improving sentiment classification using LangChain and advancing academic and practical applications in financial data processing.',
     },
