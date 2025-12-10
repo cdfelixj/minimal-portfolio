@@ -29,6 +29,18 @@ export default function Intro() {
       <div className="w-full flex justify-center">
           <Card />
       </div>
+      
+      <div className="w-full flex justify-center mt-8">
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="32" 
+          height="32" 
+          viewBox="0 0 24 24" 
+          className="scroll-arrow dark:fill-white fill-stone-900"
+        >
+          <path d="M12 17.414L3.293 8.707l1.414-1.414L12 14.586l7.293-7.293 1.414 1.414L12 17.414z"/>
+        </svg>
+      </div>
     </div>
   )
 }
