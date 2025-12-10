@@ -7,6 +7,8 @@ import PreLoader from './components/PreLoader';
 import RevealOnScroll from './components/RevealOnScroll';
 import AboutMe from './components/AboutMe';
 import CV from "/public/assets/Juan-Felix-Pangestu_CV.pdf"
+import ExpandableSlider from './components/ExpandableSlider';
+import sliderData from './data/slider';
 
 
 
@@ -100,6 +102,9 @@ function App() {
 		
 			<Intro />
 			<RevealOnScroll>
+				<div className="w-full mt-16">
+        			<ExpandableSlider slides={sliderData} />
+      			</div>
 				<Timeline />
 			</RevealOnScroll>
 			

@@ -1,8 +1,7 @@
 import React from 'react'
 import portfolio from '../data/portfolio';
 import PortfolioItem from './PortfolioItem';
-import ExpandableSlider from './ExpandableSlider';
-import sliderData from '../data/slider';
+
 
 export default function Portfolio() {
   return (
@@ -16,10 +15,6 @@ export default function Portfolio() {
                 link= {project.link}
             />
         ))}
-      </div>
-      
-      <div className="w-full mt-16">
-        <ExpandableSlider slides={sliderData} />
       </div>
     </div>
   )
