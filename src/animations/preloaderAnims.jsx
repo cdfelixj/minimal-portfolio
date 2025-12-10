@@ -21,18 +21,18 @@ export const preLoaderAnim = () => {
       ease: "Power3.easeOut",
     })
     .from(".texts-container span", {
-      duration: 1.5,
-      delay: 1,
+      duration: 0.6,
+      delay: 0.3,
       y: 70,
       skewY: 10,
-      stagger: 0.4,
+      stagger: 0.15,
       ease: "Power3.easeOut",
     })
     .to(".texts-container span", {
-      duration: 1,
+      duration: 0.5,
       y: 70,
       skewY: -20,
-      stagger: 0.2,
+      stagger: 0.1,
       ease: "Power3.easeOut",
     })
 
@@ -54,12 +54,12 @@ export const preLoaderAnim = () => {
     .to(
       ".preloader",
       {
-        duration: 1.5,
+        duration: 0.8,
         height: "0vh",
         ease: "Power3.easeOut",
         onComplete: mobileLanding(),
       },
-      "-=2"
+      "-=1"
     )
     .from(".landing__main .text", {
       duration: 2,

@@ -1,6 +1,6 @@
 import React from 'react'
 import Title from './Title'
-import Card from './Card'
+
 import aboutme from '../data/aboutme'
 
 export default function AboutMe() {
@@ -9,7 +9,7 @@ export default function AboutMe() {
       <div className="flex flex-col md:flex-row my-10 mb-15">
           <div className="w-full">
           <div className="flex items-start p-12">
-            <Card/>
+            
         </div>
           <Title>{aboutme.title}</Title>
       <div className='flex flex-col md:flex-row gap-12'>
