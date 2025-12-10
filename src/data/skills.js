@@ -30,6 +30,7 @@ export default {
         { name: 'Pandas', icon: 'devicon-pandas-plain' },
         { name: 'Matplotlib', icon: 'devicon-matplotlib-plain' },
         { name: 'Seaborn', icon: 'devicon-python-plain' },
+        { name: 'Scikit-learn', icon: 'devicon-scikitlearn-plain' },
         { name: 'LangChain', icon: 'devicon-python-plain' },
         { name: 'Power BI', icon: 'devicon-azure-plain' },
         { name: 'Tableau', icon: 'devicon-python-plain' }

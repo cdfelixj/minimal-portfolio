@@ -35,7 +35,7 @@ export default [
         duration: 'Dec 2023 - Jan 2024',
         title: 'Software Engineer Intern',
         company: 'Admazes',
-        logo: '/assets/logos/download.jpeg',
+        logo: '/assets/logos/admazes.jpeg',
         details:
             'Enhanced semantic LLM response accuracy, advanced RAG search capabilities, and optimized data analytics with Google BigQuery through SQL queries to boost operational and retrieval efficiency.',
     },
