@@ -13,7 +13,7 @@ export default [
         company: 'Oxbridge Economics',
         logo: '/assets/logos/oxbridge_economics_llc_logo.jpeg',
         details:
-            'Researched, integrated, and implemented fintech third-party APIs—such as Stripe—into legacy systems, enabling new payment solutions and improving existing software functionality to support broader financial technology capabilities.',
+            'Researched, integrated, and implemented fintech third-party APIs, such as Stripe, into legacy systems, enabling new payment solutions and improving existing software functionality to support broader financial technology capabilities.',
     },
     {
         duration: 'June 2024 - Aug 2024',

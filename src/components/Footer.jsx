@@ -5,7 +5,7 @@ export default function Footer() {
     <div className="py-5 text-center">
       {/* <!-- Social Media Icons --> */}
       <p className="text-sm mt-2 opacity-50">
-        &copy; {new Date().getFullYear()} Felix Lau Pangestu
+        &copy; {new Date().getFullYear()} Felix Lau Pangestu XOXO
       </p>
     </div>
   )
