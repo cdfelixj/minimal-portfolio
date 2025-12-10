@@ -1,32 +1,50 @@
 export default [
     {
-        year: '2018',
-        title: 'First lines of code.',
-        duration: 'Rosaryhill School',
+        duration: 'July 2025 - Aug 2025',
+        title: 'Digital & IT Intern',
+        company: 'Cathay Pacific',
+        logo: '/assets/logos/cathay.png',
         details:
-            "This is the first code I have ever compiled and it was in my ICT class in Highschool where we learnt how to do loops. Couldn't have imagine that this was the start of hours and hours of coding.",
+            'Developed and automated data processing workflows, standardized APIs across teams, built cargo MVP, created rostering algorithms, and managed hackathon logistics to enhance efficiency, reduce manual tasks, and support cross-functional projects.',
     },
     {
-        year: '2022 Summer',
-        title: 'Product Management Intern',
-        duration: 'Markworth',
+        duration: 'Dec 2024 - Jan 2025',
+        title: 'Software Engineer Intern',
+        company: 'Oxbridge Economics',
+        logo: '/assets/logos/oxbridge_economics_llc_logo.jpeg',
         details:
-            'I was part of the product team in which I contributed in product design, implementation and discussions. Started to get used to using HTML, CSS and Javascript with Odoo to create websites for the company and clients.',
+            'Researched, integrated, and implemented fintech third-party APIs—such as Stripe—into legacy systems, enabling new payment solutions and improving existing software functionality to support broader financial technology capabilities.',
     },
-     {
-         year: '2023 Winter',
-         title: 'Software Engineer Intern',
-         duration: 'Admazes',
-         details:
-             'I was tasked to create a functional LLM Bot that could be easily adjusted with data through finetuning and embeddings. Tech stack included: Python, Streamlit and LangChain.',
-     },
-     {
-        year: 'Present',
+    {
+        duration: 'June 2024 - Aug 2024',
+        title: 'Software Engineer Intern',
+        company: 'Wizpresso',
+        logo: '/assets/logos/wizpresso_logo.jpeg',
+        details:
+            'Refactored core APIs for improved performance, implemented secure authentication, and led database migration to AWS, optimizing latency, security, and data integrity for large-scale user and service operations.',
+    },
+    {
+        duration: 'Jan 2024 - Aug 2024',
         title: 'Research Assistant',
-        duration: 'HKBU',
+        company: 'Hong Kong Baptist University',
+        logo: '/assets/logos/1764983249337.jpeg',
         details:
-            "Been a part of Dr Kim Yoon Ho's research on the efficacy of using AI to read Financial Statements.",
+            'Researched, fine-tuned, and documented Large Language Models for financial document analysis, improving sentiment classification using LangChain and advancing academic and practical applications in financial data processing.',
     },
-     
-     
- ]
+    {
+        duration: 'Dec 2023 - Jan 2024',
+        title: 'Software Engineer Intern',
+        company: 'Admazes',
+        logo: '/assets/logos/download.jpeg',
+        details:
+            'Enhanced semantic LLM response accuracy, advanced RAG search capabilities, and optimized data analytics with Google BigQuery through SQL queries to boost operational and retrieval efficiency.',
+    },
+    {
+        duration: 'May 2023 - Aug 2023',
+        title: 'Product Management Intern',
+        company: 'Markworth',
+        logo: '/assets/logos/markworth_group_logo.jpeg',
+        details:
+            'Integrated websites with Odoo ERP, supported product lifecycle from market research to prototype, developed documentation, and collaborated across departments to ensure delivery of dynamic catalog, service, and event solutions.',
+    },
+]

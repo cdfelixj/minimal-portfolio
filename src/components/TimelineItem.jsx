@@ -1,14 +1,23 @@
 import React from 'react'
 
-export default function TimelineItem({year, title, duration, details}) {
+export default function TimelineItem({duration, title, company, details, logo}) {
   return (
     <ol className="flex flex-col md:flex-row relative border-l border-stone-200 dark:border-stone-700">
          <li className="mb-10 ml-4">
             <div className="absolute w-3 h-3 bg-stone-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-stone-900 dark:bg-stone-700" />
             <p className="flex flex-wrap gap-4 flex-row items-center justify-start text-xs md:text-sm">
-               <span className="inline-block px-2 py-1 font-semibold text-white dark:text-stone-900 bg-stone-900 dark:bg-white rounded-md">
-                  {year}
-               </span>
+               <div className="flex items-center gap-2">
+                  {logo && (
+                     <img 
+                        src={logo} 
+                        alt={`${company} logo`} 
+                        className="w-8 h-8 rounded-full object-cover border-2 border-stone-200 dark:border-stone-700 bg-white"
+                     />
+                  )}
+                  <span className="inline-block px-2 py-1 font-semibold text-white dark:text-stone-900 bg-stone-900 dark:bg-white rounded-md">
+                     {company}
+                  </span>
+               </div>
                <h3 className="text-lg font-semibold text-stone-900 dark:text-white">
                   {title}
                </h3>
