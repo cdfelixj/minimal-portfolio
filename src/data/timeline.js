@@ -1,6 +1,6 @@
 export default [
     {
-        duration: 'July 2025 - Aug 2025',
+        duration: 'Jul 2025 - Aug 2025',
         title: 'Digital & IT Intern',
         company: 'Cathay Pacific',
         logo: '/assets/logos/cathay.png',
@@ -16,7 +16,7 @@ export default [
             'Researched, integrated, and implemented fintech third-party APIs, such as Stripe, into legacy systems, enabling new payment solutions and improving existing software functionality to support broader financial technology capabilities.',
     },
     {
-        duration: 'June 2024 - Aug 2024',
+        duration: 'Jun 2024 - Aug 2024',
         title: 'Software Engineer Intern',
         company: 'Wizpresso',
         logo: '/assets/logos/wizpresso_logo.jpeg',
